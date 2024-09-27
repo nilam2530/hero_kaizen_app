@@ -187,7 +187,7 @@ class _HazardCorrectionDetailState extends State<HazardCorrectionDetail> {
                   Text('Risk Level', style: CustomTextSty.subHeadingStyle),
                   Row(
                     children: [
-                      Image.asset('assets/images/Flag.png'),
+                      Image.asset(AppImages.flagImg),
                       Text('High', style: CustomTextSty.valueStyle),
                     ],
                   ),
@@ -327,7 +327,7 @@ class _HazardCorrectionDetailState extends State<HazardCorrectionDetail> {
                   Text('Risk Level', style: CustomTextSty.subHeadingStyle),
                   Row(
                     children: [
-                      Image.asset('assets/images/Flag.png'),
+                      Image.asset(AppImages.flagImg),
                       Text('High', style: CustomTextSty.valueStyle),
                     ],
                   ),

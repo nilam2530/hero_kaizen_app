@@ -5,6 +5,7 @@ class AppImages {
 
   static const splashLogo = '${AssestImg}splash_logo.png';
   static const viewRequest = '${AssestImg}view_request.png';
+  static const flagImg = '${AssestImg}Flag.png';
 
   //AppBar Images
   static const heroAppBar = 'assets/images/hero_appBar.png';
