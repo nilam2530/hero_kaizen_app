@@ -6,7 +6,7 @@ import '../../../app_configs/text_styles.dart';
 import '../../../common_widgets/animated_customwidgets/animatedCustomDropDown.dart';
 import '../../../common_widgets/custom_fields/text/custom_text_field.dart';
 import '../../../models/pillar_model.dart';
-import '../kaizen_theme/provider/kaizen_theme_provider.dart';
+import '../kaizen_benefit/provider/kaizen_benefit_provider.dart';
 
 class AddLoss extends StatefulWidget {
   const AddLoss({super.key});
@@ -18,7 +18,7 @@ class AddLoss extends StatefulWidget {
 class _AddLossState extends State<AddLoss> {
   @override
   Widget build(BuildContext context) {
-    final controller = Provider.of<KaizenThemeProvider>(context);
+    final controller = Provider.of<KaizenBenefitProvider>(context);
 
     return Scaffold(
       backgroundColor: AppColors.whiteColor,
@@ -124,13 +124,13 @@ class _AddLossState extends State<AddLoss> {
     );
   }
 
-  bool _validateFields(KaizenThemeProvider controller) {
+  bool _validateFields(KaizenBenefitProvider controller) {
     return controller.nameController.text.trim().isNotEmpty &&
         controller.selectetThemeStatus.trim().isNotEmpty &&
         controller.sortOrderController.text.trim().isNotEmpty;
   }
 
-  Widget _buildFormFields(KaizenThemeProvider controller) {
+  Widget _buildFormFields(KaizenBenefitProvider controller) {
     return Column(
       children: [
         Row(

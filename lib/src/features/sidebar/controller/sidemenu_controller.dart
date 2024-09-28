@@ -20,6 +20,7 @@ class SidemeuController with ChangeNotifier {
     const MenuItemData(title: "Kaizen Theme", icon: Icons.dashboard),
     const MenuItemData(title: "Kaizen Loss", icon: Icons.insert_chart),
     const MenuItemData(title: "View Request Status", icon: Icons.table_view_outlined),
+    const MenuItemData(title: "View Request benefit", icon: Icons.table_view_outlined),
   ];
 
   void handleMenuItemSelected(int index, BuildContext context) {
@@ -52,6 +53,8 @@ class SidemeuController with ChangeNotifier {
         GoRouter.of(context).go('/kaizenLoss');
       case 9:
         GoRouter.of(context).go('/requestStatus');
+      case 10:
+        GoRouter.of(context).go('/kaizenBenefit');
       default:
         break;
     }

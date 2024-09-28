@@ -10,7 +10,7 @@ import 'package:hero_kaizen_app/l10n/localixation.dart';
 import 'package:hero_kaizen_app/src/common_widgets/datetime/datetime_provider.dart';
 import 'package:hero_kaizen_app/src/features/admin/Kaizen_loss/provider/kaizen_loss_provider.dart';
 import 'package:hero_kaizen_app/src/features/admin/kaizen_pillar/provider/kaizen_pillar_controller.dart';
-import 'package:hero_kaizen_app/src/features/admin/kaizen_theme/provider/kaizen_theme_provider.dart';
+import 'package:hero_kaizen_app/src/features/admin/kaizen_benefit/provider/kaizen_benefit_provider.dart';
 import 'package:hero_kaizen_app/src/features/authentication/login/provider/login_screen_provider.dart';
 import 'package:hero_kaizen_app/src/features/sidebar/controller/sidemenu_controller.dart';
 import 'package:hero_kaizen_app/src/routing/route_config.dart';
@@ -32,7 +32,7 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(create: (_) => DateTimeProvider()),
         ChangeNotifierProvider(create: (_) => SidemeuController()),
         ChangeNotifierProvider(create: (_) => KaizenProvider()),
-        ChangeNotifierProvider(create: (_) => KaizenThemeProvider()),
+        ChangeNotifierProvider(create: (_) => KaizenBenefitProvider()),
         ChangeNotifierProvider(create: (_) => KaizenLossProvider()),
         ChangeNotifierProvider(create: (_) => CustomDataTableProvider()),
       ],

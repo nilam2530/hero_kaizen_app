@@ -57,7 +57,9 @@ class CustomDataTableWidget<T> extends StatelessWidget {
               borderRadius: BorderRadius.circular(6),
             ),
             child: Column(
+
               children: [
+                _buildPaginationControls(context, totalPages, true),
                 _buildHeaderRow(false),
                 Expanded(
                   child: SingleChildScrollView(
@@ -82,7 +84,6 @@ class CustomDataTableWidget<T> extends StatelessWidget {
                     ),
                   ),
                 ),
-                _buildPaginationControls(context, totalPages, false),
               ],
             ),
           );

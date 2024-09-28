@@ -7,6 +7,8 @@ import 'package:hero_kaizen_app/src/app_configs/app_images.dart';
 import 'package:hero_kaizen_app/src/themes/theme_provider.dart';
 
 class CustomAppBar extends StatefulWidget implements PreferredSizeWidget {
+  const CustomAppBar({super.key});
+
 
   @override
   CustomAppBarState createState() => CustomAppBarState();

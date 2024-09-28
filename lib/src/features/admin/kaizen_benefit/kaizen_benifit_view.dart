@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
-import 'package:hero_kaizen_app/src/features/admin/kaizen_benefit/provider/kaizen_benefit_provider.dart';
 import 'package:provider/provider.dart';
 import '../../../app_configs/app_colors.dart';
 import '../../../app_configs/app_images.dart';
@@ -8,21 +8,20 @@ import '../../../app_configs/text_styles.dart';
 import '../../../common_widgets/custom_btn/custom_elevated_btn.dart';
 import '../../../common_widgets/custom_data_table/custom_data_table.dart';
 import '../../../models/kaizen_theme_model.dart';
+import 'provider/kaizen_benefit_provider.dart';
 
-class KaizenThemeView extends StatefulWidget {
-  const KaizenThemeView({super.key});
+class KaizenBenefitView extends StatefulWidget {
+  const KaizenBenefitView({super.key});
 
   @override
-  State<KaizenThemeView> createState() => _KaizenThemeViewState();
+  State<KaizenBenefitView> createState() => _KaizenBenefitViewState();
 }
 
-class _KaizenThemeViewState extends State<KaizenThemeView> {
+class _KaizenBenefitViewState extends State<KaizenBenefitView> {
   @override
   Widget build(BuildContext context) {
     final controller = Provider.of<KaizenBenefitProvider>(context);
-    final screenHeight = MediaQuery.of(context).size.height;
-    final screenWidth = MediaQuery.of(context).size.width;
-    return ChangeNotifierProvider(
+        return ChangeNotifierProvider(
         create: (context) => KaizenBenefitProvider(),
         child: Scaffold(
           backgroundColor: AppColors.whiteColor,
@@ -44,12 +43,12 @@ class _KaizenThemeViewState extends State<KaizenThemeView> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              'Kaizen Theme',
+                              'Benefit',
                               style: textStyleFont18W600Black(),
                             ),
                             const SizedBox(height: 5),
                             Text(
-                              'DashBoard | Kaizen Theme',
+                              'Home | KaiZen Benefit',
                               style: textStyleFont14W400Black(),
                             ),
                           ],
@@ -58,7 +57,7 @@ class _KaizenThemeViewState extends State<KaizenThemeView> {
                       Padding(
                         padding: const EdgeInsets.only(right: 8.0),
                         child: MyCustomButton(
-                          name: 'Add Theme',
+                          name: 'Add Benefit',
                           textColor: AppColors.whiteColor,
                           icon: Image.asset(AppImages.addNew,
                               width: 16, height: 16),
@@ -79,7 +78,7 @@ class _KaizenThemeViewState extends State<KaizenThemeView> {
                   child: Container(
                     decoration: BoxDecoration(
                         border:
-                            Border.all(width: 0.5, color: AppColors.lightGrey),
+                        Border.all(width: 0.5, color: AppColors.lightGrey),
                         borderRadius: BorderRadius.circular(12)),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.start,
@@ -93,64 +92,33 @@ class _KaizenThemeViewState extends State<KaizenThemeView> {
                           ),
                         ),
                         const Divider(),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Container(
-                                height:
-                                    MediaQuery.of(context).size.height * 0.05,
-                                width: MediaQuery.of(context).size.width * 0.08,
-                                decoration: BoxDecoration(
-                                  color: Colors.green,
-                                  borderRadius: BorderRadius.circular(4),
-                                ),
-                                child: Center(
-                                  child: Text(
-                                    "Reset",
-                                    style: textStyleFont14W400White(),
-                                  ),
-                                ),
-                              ),
-                            ),
-                            const SizedBox(height: 10),
-                            Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: SizedBox(
-                                height: screenHeight * 0.06,
-                                width: screenWidth * 0.25,
+                        Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 12.0),  // Adjust padding as needed
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.end,  // Align the button to the right
+                            children: [
+                              GestureDetector(
+                                onTap: () {
+                                  // Trigger the reset function in the provider
+                                  controller.resetData();
+                                },
                                 child: Container(
-                                  padding: const EdgeInsets.symmetric(
-                                      horizontal: 12),
+                                  height: MediaQuery.of(context).size.height * 0.05,
+                                  width: MediaQuery.of(context).size.width * 0.08,
                                   decoration: BoxDecoration(
-                                    color: AppColors.dark3Grey,
-                                    borderRadius: BorderRadius.circular(18),
-                                    border: Border.all(
-                                        color: AppColors.dark3Grey, width: 1),
+                                    color: Colors.green,
+                                    borderRadius: BorderRadius.circular(4),
                                   ),
-                                  child: const Row(
-                                    children: [
-                                      Icon(Icons.search, size: 20),
-                                      SizedBox(width: 8),
-                                      Expanded(
-                                        child: Padding(
-                                          padding: EdgeInsets.only(bottom: 14),
-                                          child: TextField(
-                                            decoration: InputDecoration(
-                                              hintText: "Search",
-                                              border: InputBorder.none,
-                                            ),
-                                            style: TextStyle(fontSize: 14),
-                                          ),
-                                        ),
-                                      ),
-                                    ],
+                                  child: Center(
+                                    child: Text(
+                                      "Reset",
+                                      style: textStyleFont14W400White(),
+                                    ),
                                   ),
                                 ),
                               ),
-                            ),
-                          ],
+                            ],
+                          ),
                         ),
                         const SizedBox(height: 10),
                         ConstrainedBox(
@@ -164,27 +132,40 @@ class _KaizenThemeViewState extends State<KaizenThemeView> {
                               'Status',
                             ],
                             columnBuilders: [
-                              (data) => Padding(
-                                    padding: const EdgeInsets.all(8.0),
-                                    child: Text(data.id, style: textStyle()),
+                                  (data) => Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Text(data.id, style: textStyle()),
+                              ),
+                                  (data) => Text(data.name, style: textStyle()),
+                                  (data) => Text(data.sortNo, style: textStyle()),
+                                  (data) => Padding(
+                                    padding: EdgeInsets.only(left: 60.h,right: 60.h ),
+                                    child: Container(
+                                      height:
+                                      MediaQuery.of(context).size.height * 0.05,
+                                      width: MediaQuery.of(context).size.width * 0.08,
+                                                                    decoration: BoxDecoration(
+                                    color: data.status == 'Enable' ? Colors.green : AppColors.redColor,  // Set background color for "Enable"
+                                    borderRadius: BorderRadius.circular(4),
+                                                                    ),
+                                                                    child: Center(
+                                                                      child: Text(
+                                                                                                          data.status,
+                                                                                                          style: TextStyle(
+                                                                                                            color: data.status == 'Enable' ? Colors.white : AppColors.redColor,  // Set text color to white for "Enable"
+                                                                                                            fontWeight: FontWeight.w500,
+                                                                                                          ),
+                                                                      ),
+                                                                    ),
+                                                                  ),
                                   ),
-                              (data) => Text(data.name, style: textStyle()),
-                              (data) => Text(data.sortNo, style: textStyle()),
-                              (data) => Text(
-                                    data.status,
-                                    style: TextStyle(
-                                      color: data.status == 'Pending'
-                                          ? AppColors.redColor
-                                          : AppColors.greenColor,
-                                      fontWeight: FontWeight.w500,
-                                    ),
-                                  ),
+
                             ],
                             expandedContentBuilder: (data) => [
                               const SizedBox(height: 10),
                               Padding(
                                 padding:
-                                    const EdgeInsets.symmetric(horizontal: 20),
+                                const EdgeInsets.symmetric(horizontal: 20),
                                 child: Text(data.action, style: textStyle()),
                               ),
                             ],

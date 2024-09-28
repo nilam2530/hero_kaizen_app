@@ -11,6 +11,7 @@ enum AppRoute {
   kaizenLoss,
   kaizenAddLoss,
   requestStatus,
+  kaizenBenefit
 
 
 
@@ -43,6 +44,8 @@ extension AppRouteExt on AppRoute {
         return '/kaizenAddLoss';
       case AppRoute.requestStatus:
         return '/requestStatus';
+      case AppRoute.kaizenBenefit:
+        return '/kaizenBenefit';
       default:
         return '/login';
     }
@@ -74,6 +77,8 @@ extension AppRouteExt on AppRoute {
         return 'kaizenAddLoss';
       case AppRoute.requestStatus:
         return 'requestStatus';
+      case AppRoute.kaizenBenefit:
+        return 'kaizenBenefit';
       default:
         return 'login';
     }

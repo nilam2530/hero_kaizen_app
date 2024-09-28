@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
 class ViewButton extends StatelessWidget {
-  const ViewButton({Key? key}) : super(key: key);
+  const ViewButton({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Align(
       alignment: Alignment.centerRight,
-      child: Container(
+      child: SizedBox(
         height: 40,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.end,
@@ -24,13 +24,13 @@ class ViewButton extends StatelessWidget {
                     side: const BorderSide(color: Color(0xFF222222), width: 1), // Border color
                   ),
                 ),
-                child: Text(
+                child: const Text(
                   'Cancel',
                   style: TextStyle(color: Color(0xFF222222)),
                 ),
               ),
             ),
-            SizedBox(width: 10),
+            const SizedBox(width: 10),
             SizedBox(
               width: 190,
               child: ElevatedButton(

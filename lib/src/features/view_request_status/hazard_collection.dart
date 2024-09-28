@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:hero_kaizen_app/src/app_configs/app_images.dart';
 import '../../app_configs/custom_style.dart';
 import '../../common_widgets/paint_custom/custom_normal_container.dart';
-import '../../themes/custom_text_style.dart';
 
 class HazardCorrectionDetail extends StatefulWidget {
   const HazardCorrectionDetail({super.key});

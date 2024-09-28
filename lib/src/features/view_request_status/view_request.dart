@@ -4,25 +4,27 @@ import 'hazard_collection.dart';// Importing the HazardCorrectionDetail widget
 import 'action_detail.dart'; // Importing the ActionDetail widget
 
 class ViewRequestStatus extends StatelessWidget {
-  Size? screen_size;
+  const ViewRequestStatus({super.key});
+
+
   @override
   Widget build(BuildContext context) {
-    screen_size=MediaQuery.of(context).size;
+    final screenSize = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(
-        title: Text('View Request'),
+        title: const Text('View Request'),
       ),
       body: ListView(
         children: [
           SizedBox(
-            height:(screen_size!.width<600)?550:350,
-            child: HazardCorrectionDetail(),
+            height:(screenSize.width<600)?550:350,
+            child: const HazardCorrectionDetail(),
           ),
           SizedBox(
-          height:(screen_size!.width<600)?600:450, // adjust the height as needed
-            child: ActionDetail(),
+          height:(screenSize.width<600)?600:450, // adjust the height as needed
+            child: const ActionDetail(),
           ),
-           SizedBox(
+           const SizedBox(
             height: 50, // adjust the height as needed
             child: ViewButton(),
           ),

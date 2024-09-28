@@ -11,12 +11,12 @@ class CustomTextSty {
     fontStyle: FontStyle.normal,
     fontWeight: FontWeight.w600,
   );
-  static TextStyle mTextStyle13 = TextStyle(
+  static TextStyle mTextStyle13 = const TextStyle(
       fontSize: 20.0,
       fontWeight: FontWeight.w700,
       color: Color(0xFF000000)
   );
-  static TextStyle mTextStyle14 = TextStyle(
+  static TextStyle mTextStyle14 = const TextStyle(
       fontSize: 16.0,
       fontWeight: FontWeight.w400,
       color: Color(0xFF000000)

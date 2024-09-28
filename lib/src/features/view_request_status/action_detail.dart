@@ -2,7 +2,6 @@ import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import '../../app_configs/custom_style.dart';
 import '../../common_widgets/paint_custom/custom_normal_container.dart';
-import '../../themes/custom_text_style.dart';
 import 'package:intl/intl.dart';
 import 'dart:io';
 
@@ -70,7 +69,7 @@ class _ActionDetailState extends State<ActionDetail> {
                                   },
                                 ),
                               ),
-                              Text('Pending for action'),
+                              const Text('Pending for action'),
                             ],
                           ),
                           const SizedBox(width: 20.0),
@@ -89,7 +88,7 @@ class _ActionDetailState extends State<ActionDetail> {
                                   },
                                 ),
                               ),
-                              Text('Complete for action'),
+                              const Text('Complete for action'),
                             ],
                           ),
                         ],
@@ -108,7 +107,7 @@ class _ActionDetailState extends State<ActionDetail> {
                         'Target Date',
                         style: CustomTextSty.mTextStyle14,
                       ),
-                      Container(
+                      SizedBox(
                         width: 386, // adjust the width to your desired value
                         child: TextFormField(
                           readOnly: true,
@@ -176,11 +175,11 @@ class _ActionDetailState extends State<ActionDetail> {
     );
   }
 
-  LeftContainer()=>Column(
+  LeftContainer() async =>Column(
     crossAxisAlignment: CrossAxisAlignment.start,
     children: [
       Text('Impact Description', style:CustomTextSty.mTextStyle14),
-      Container(
+      SizedBox(
         width: 386,
         height: 96,
         child: TextFormField(
@@ -225,7 +224,7 @@ class _ActionDetailState extends State<ActionDetail> {
                     });
                   }
                 },
-                child: Row(
+                child: const Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Image(

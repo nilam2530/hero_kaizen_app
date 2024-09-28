@@ -8,14 +8,14 @@ import '../../../common_widgets/animated_customwidgets/animatedCustomDropDown.da
 import '../../../common_widgets/custom_fields/text/custom_text_field.dart';
 import '../../../models/pillar_model.dart';
 
-class AddThemeView extends StatefulWidget {
-  const AddThemeView({super.key});
+class AddBenefitView extends StatefulWidget {
+  const AddBenefitView({super.key});
 
   @override
-  State<AddThemeView> createState() => _AddThemeViewState();
+  State<AddBenefitView> createState() => _AddBenefitViewState();
 }
 
-class _AddThemeViewState extends State<AddThemeView> {
+class _AddBenefitViewState extends State<AddBenefitView> {
   @override
   Widget build(BuildContext context) {
     final controller = Provider.of<KaizenBenefitProvider>(context);

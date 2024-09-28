@@ -2,7 +2,7 @@ import 'package:go_router/go_router.dart';
 import 'package:hero_kaizen_app/src/features/admin/Kaizen_loss/add_loss.dart';
 import 'package:hero_kaizen_app/src/features/admin/Kaizen_loss/kaizen_loss_view.dart';
 import 'package:hero_kaizen_app/src/features/admin/kaizen_pillar/kaizen_pillar_view.dart';
-import 'package:hero_kaizen_app/src/features/admin/kaizen_theme/add_theme.dart';
+import 'package:hero_kaizen_app/src/features/admin/kaizen_benefit/add_benefit.dart';
 import 'package:hero_kaizen_app/src/features/admin/kaizen_theme/kaizen_theme_view.dart';
 import 'package:hero_kaizen_app/src/features/authentication/login/login_screen.dart';
 import 'package:hero_kaizen_app/src/features/dashboard/dashboard.dart';
@@ -15,6 +15,7 @@ import 'package:hero_kaizen_app/src/features/view_request/view_request.dart';
 import 'package:hero_kaizen_app/src/routing/not_found_screen.dart';
 import 'package:hero_kaizen_app/src/routing/route_names.dart';
 import 'package:hero_kaizen_app/src/features/sidebar/shell_layout.dart';
+import '../features/admin/kaizen_benefit/kaizen_benifit_view.dart';
 import '../features/admin/kaizen_pillar/add_pillar_view.dart';
 import '../features/view_request_status/view_request.dart';
 
@@ -85,7 +86,7 @@ class AppRouter {
             GoRoute(
               path: AppRoute.kaizenAddTheme.getPath,
               name: AppRoute.kaizenAddTheme.getName,
-              builder: (context, state) => const AddThemeView(),
+              builder: (context, state) => const AddBenefitView(),
             ),
             GoRoute(
               path: AppRoute.kaizenLoss.getPath,
@@ -101,6 +102,11 @@ class AppRouter {
               path: AppRoute.requestStatus.getPath,
               name: AppRoute.requestStatus.getName,
               builder: (context, state) => ViewRequestStatus(),
+            ),
+            GoRoute(
+              path: AppRoute.kaizenBenefit.getPath,
+              name: AppRoute.kaizenBenefit.getName,
+              builder: (context, state) => const KaizenBenefitView(),
             ),
           ],
         ),
