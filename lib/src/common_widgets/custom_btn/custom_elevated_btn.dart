@@ -1,55 +1,61 @@
 import 'package:flutter/material.dart';
 
-class MyCustomButton extends StatefulWidget {
+class MyCustomButton extends StatelessWidget {
   final String name;
-  final Color btnColor;
+  final Color? btnColor;
   final Color textColor;
   final Widget? mWidget;
   final VoidCallback onTap;
-  final Image? icon;
+  final Widget? icon;
+  final Color borderColor;
+  final double borderWidth;
 
   const MyCustomButton({
     super.key,
     required this.name,
     required this.textColor,
-    required this.btnColor,
+    this.btnColor,
     required this.onTap,
     this.mWidget,
     this.icon,
+    this.borderColor = Colors.transparent,
+    this.borderWidth = 0.0,
   });
 
-  @override
-  State<MyCustomButton> createState() => _MyCustomButtonState();
-}
-
-class _MyCustomButtonState extends State<MyCustomButton> {
   @override
   Widget build(BuildContext context) {
     double screenHeight = MediaQuery.of(context).size.height;
     return CustomPaint(
-      painter: MyPainter(widget.btnColor),
-      child: GestureDetector(
-        onTap: widget.onTap,
-        child: SizedBox(
-          width: 150,
-          height: screenHeight * 0.05,
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              if (widget.icon != null) ...[
-                widget.icon!,
-                const SizedBox(width: 8),
-              ],
-              widget.mWidget ??
-                  Text(
-                    widget.name,
-                    style: const TextStyle(
-                      fontSize: 14,
-                      color: Colors.white,
-                      fontFamily: "OpenSansBold",
+      painter: MyPainter(
+        btnColor!,
+        borderColor: borderColor,
+        borderWidth: borderWidth,
+      ),
+      child: Expanded(
+        child: GestureDetector(
+          onTap: onTap,
+          child: SizedBox(
+            width: 150,
+            height: screenHeight * 0.05,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                if (icon != null) ...[
+                  icon!,
+                  const SizedBox(width: 8),
+                ],
+                mWidget ??
+                    Text(
+                      name,
+                      style: TextStyle(
+                        fontSize: 12,
+                        fontWeight: FontWeight.w600,
+                        color: textColor,
+                        fontFamily: "OpenSansBold",
+                      ),
                     ),
-                  ),
-            ],
+              ],
+            ),
           ),
         ),
       ),
@@ -59,11 +65,14 @@ class _MyCustomButtonState extends State<MyCustomButton> {
 
 class MyPainter extends CustomPainter {
   final Color backgroundColor;
+  final Color borderColor; // Border color parameter
+  final double borderWidth; // Border width parameter
 
-  MyPainter(this.backgroundColor);
+  MyPainter(this.backgroundColor, {this.borderColor = Colors.transparent, this.borderWidth = 0.0});
 
   @override
   void paint(Canvas canvas, Size size) {
+    // Draw background
     final paint = Paint()
       ..color = backgroundColor
       ..style = PaintingStyle.fill;
@@ -78,6 +87,16 @@ class MyPainter extends CustomPainter {
       ..close();
 
     canvas.drawPath(path, paint);
+
+    // Draw border if width is greater than 0
+    if (borderWidth > 0.0) {
+      final borderPaint = Paint()
+        ..color = borderColor
+        ..style = PaintingStyle.stroke
+        ..strokeWidth = borderWidth;
+
+      canvas.drawPath(path, borderPaint);
+    }
   }
 
   @override

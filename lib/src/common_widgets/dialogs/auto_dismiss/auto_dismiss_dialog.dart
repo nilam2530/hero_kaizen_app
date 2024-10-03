@@ -3,6 +3,7 @@ import 'package:go_router/go_router.dart';
 
 import '../../../app_configs/app_images.dart';
 import '../../../constants/app_sizes.dart';
+
 class AutoDismissDialog extends StatelessWidget {
   final String message;
   final String imageAsset;

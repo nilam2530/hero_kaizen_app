@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 
 class AppColors {
-
-
   static const dividerColor = Color(0xFF7D8B99);
   static const btnRedColor = Color(0xFFEE2326);
   static const darBlack = Color(0xFF000000);
@@ -20,6 +18,7 @@ class AppColors {
   static const greySecondary = Color(0xFF797A8B);
   static const redColor = Color(0xFFFF0000);
   static const greenColor = Color(0xFF008000);
+  static const borderColor = Color(0xFFACACAC);
 
   //SummaryCardColors
   static const penDingColors = Color(0xFFFFEFD1);
@@ -84,10 +83,14 @@ class AppColors {
   static const gradientColorsIcons3 = Color(0xFF5e72e4);
   static const gradientColorsIcons4 = Color(0xFF825ee4);
   static const sucessful = Color(0xFF4CAF50);
+  static const searchBgColor = Color.fromRGBO(34, 34, 34, 1);
+
 
   static const gradientColorsIcons5 = Color(0xFF2dce89);
   static const gradientColorsIcons6 = Color(0xFF2dcecc);
 
   static const gradientColorsIcons7 = Color(0xFFf5365c);
   static const gradientColorsIcons8 = Color(0xFFf56036);
+  static const containerColorLightGrey = Color(0xF6F6F6F6);
+  static const containerBorderColorLightGrey = Color(0xDEE3E7E7);
 }

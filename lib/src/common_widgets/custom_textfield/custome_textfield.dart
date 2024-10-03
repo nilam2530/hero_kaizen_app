@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../app_configs/custom_style.dart';
+
 class CustomeTextField extends StatefulWidget {
   final Color? enabledBorder;
   final String? textTitle;
@@ -17,7 +18,6 @@ class CustomeTextField extends StatefulWidget {
   const CustomeTextField(
       {super.key,
       this.onSaved,
-      //  required this.labelText,
       required this.controller,
       this.enabledBorder,
       required this.textTitle,
@@ -98,13 +98,12 @@ class CustomTextFormField extends StatefulWidget {
   final String? Function(String?)? validator;
   final void Function(String)? onChanged;
   final void Function(String)? onSaved;
-  TextInputType? textInputType;
-  List<TextInputFormatter>? inputFormatters;
+  final TextInputType? textInputType;
+  final List<TextInputFormatter>? inputFormatters;
+  final Widget? suffixIcon;
+  final Widget? prefixIcon;
 
-  Widget? suffixIcon;
-  Widget? prefixIcon;
-
-  CustomTextFormField({
+  const CustomTextFormField({
     super.key,
     this.onSaved,
     this.textInputType,
@@ -141,6 +140,7 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
   void _onFocusChange() {
     debugPrint("Focus: ${_focus.hasFocus.toString()}");
   }
+
   @override
   Widget build(BuildContext context) {
     return TextFormField(
@@ -171,8 +171,8 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
             borderRadius: BorderRadius.circular(4.r),
             borderSide: const BorderSide(width: 1)),
         enabledBorder: OutlineInputBorder(
-          borderSide:
-              BorderSide(color: const Color(0xffD2D5DC).withOpacity(0.6), width: 1),
+          borderSide: BorderSide(
+              color: const Color(0xffD2D5DC).withOpacity(0.6), width: 1),
           borderRadius: BorderRadius.circular(4.r),
         ),
         focusedBorder: OutlineInputBorder(

@@ -11,10 +11,9 @@ enum AppRoute {
   kaizenLoss,
   kaizenAddLoss,
   requestStatus,
-  kaizenBenefit
-
-
-
+  kaizenBenefit,
+  kaizenMachineView,
+  tabDashboard // Updated to lowerCamelCase
 }
 
 extension AppRouteExt on AppRoute {
@@ -46,6 +45,10 @@ extension AppRouteExt on AppRoute {
         return '/requestStatus';
       case AppRoute.kaizenBenefit:
         return '/kaizenBenefit';
+      case AppRoute.kaizenMachineView:
+        return '/kaizenMachineView';
+      case AppRoute.tabDashboard: // Updated case to match enum value
+        return '/tabDashboard';
       default:
         return '/login';
     }
@@ -79,6 +82,10 @@ extension AppRouteExt on AppRoute {
         return 'requestStatus';
       case AppRoute.kaizenBenefit:
         return 'kaizenBenefit';
+      case AppRoute.kaizenMachineView:
+        return 'kaizenMachineView';
+      case AppRoute.tabDashboard: // Updated case to match enum value
+        return 'tabDashboard';
       default:
         return 'login';
     }

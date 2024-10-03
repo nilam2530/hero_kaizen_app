@@ -10,11 +10,10 @@ import 'package:hero_kaizen_app/src/services/service_locator.dart';
 import 'package:flutter_web_plugins/flutter_web_plugins.dart';
 import 'my_app.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';  // ScreenUtil package import
+import 'package:flutter_screenutil/flutter_screenutil.dart'; // ScreenUtil package import
 
 void main() async {
   await dotenv.load(fileName: ".env");
-
   setUrlStrategy(PathUrlStrategy());
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);

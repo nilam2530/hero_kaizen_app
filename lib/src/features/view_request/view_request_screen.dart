@@ -78,7 +78,8 @@ class _ViewRequestPageState extends State<ViewRequestPage> {
   @override
   Widget build(BuildContext context) {
     final isMobile = MediaQuery.of(context).size.width < 600;
-    final isTablet = MediaQuery.of(context).size.width >= 600 && MediaQuery.of(context).size.width < 1024;
+    final isTablet = MediaQuery.of(context).size.width >= 600 &&
+        MediaQuery.of(context).size.width < 1024;
 
     return Scaffold(
       body: SingleChildScrollView(
@@ -106,11 +107,11 @@ class _ViewRequestPageState extends State<ViewRequestPage> {
                 padding: const EdgeInsets.all(8.0),
                 child: isMobile || isTablet
                     ? Column(
-                  children: _buildResponsiveColumn(),
-                )
+                        children: _buildResponsiveColumn(),
+                      )
                     : Row(
-                  children: _buildResponsiveRow(),
-                ),
+                        children: _buildResponsiveRow(),
+                      ),
               ),
               const SizedBox(height: 24),
               const Text(
@@ -441,8 +442,7 @@ class _ViewRequestPageState extends State<ViewRequestPage> {
   }
 
   /// Builds a row for displaying request information.
-  Widget _buildRequestInfoRow(
-      String label, String value, Color labelColor, Color valueColor) {
+  Widget _buildRequestInfoRow(String label, String value, Color labelColor, Color valueColor) {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 8.0),
       child: Row(
@@ -473,5 +473,4 @@ class _ViewRequestPageState extends State<ViewRequestPage> {
       ),
     );
   }
-
 }

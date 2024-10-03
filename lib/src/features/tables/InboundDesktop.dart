@@ -91,8 +91,7 @@ class InboundDesktopState extends State<InboundDesktop> {
                                 const Text(
                                   'Section',
                                   style: TextStyle(
-                                    color: AppColors.darkGrey,
-                                      fontSize: 12),
+                                      color: AppColors.darkGrey, fontSize: 12),
                                 ),
                                 DropdownButtonFormField(
                                   decoration: const InputDecoration(

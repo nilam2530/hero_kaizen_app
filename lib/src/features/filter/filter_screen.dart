@@ -20,7 +20,7 @@ class FilterDialogContentState extends State<FilterDialogContent> {
   Future<List<String>> _getFakeStatusData(String query) async {
     return await Future.delayed(
       const Duration(seconds: 1),
-          () => _statusList
+      () => _statusList
           .where((e) => e.toLowerCase().contains(query.toLowerCase()))
           .toList(),
     );
@@ -94,7 +94,11 @@ class FilterDialogContentState extends State<FilterDialogContent> {
               suffixIcon: Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: SvgPicture.asset("assets/images/calendra.svg",
-                    color: const Color(0xFF131E29)),
+                    color: const Color(0xFF131E29),
+                    semanticsLabel: 'calendra'
+
+                ),
+
               ),
             ),
             onTap: () => _showCustomDateRangePicker(context),
@@ -256,7 +260,7 @@ class FilterDialogContentState extends State<FilterDialogContent> {
       setState(() {
         _dateRange = pickedRange;
         _dateController.text =
-        '${DateFormat('d MMM yyyy').format(_dateRange!.start)} - ${DateFormat('d MMM yyyy').format(_dateRange!.end)}';
+            '${DateFormat('d MMM yyyy').format(_dateRange!.start)} - ${DateFormat('d MMM yyyy').format(_dateRange!.end)}';
       });
     }
   }

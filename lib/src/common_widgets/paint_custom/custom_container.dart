@@ -28,9 +28,12 @@ class _CustomContainerState extends State<CustomContainer> {
     return ClipPath(
       clipper: MyClipper(), // Custom clipper to match the shape
       child: CustomPaint(
-        painter: MyPainter(widget.btnColor, widget.borderColor), // Custom painting with background and border color
+        painter: MyPainter(
+            widget.btnColor,
+            widget
+                .borderColor), // Custom painting with background and border color
         child: SizedBox(
-          width: screenWidth * widget.widthFactor,   // Responsive width
+          width: screenWidth * widget.widthFactor, // Responsive width
           height: screenHeight * widget.heightFactor, // Responsive height
         ),
       ),
@@ -44,8 +47,10 @@ class MyClipper extends CustomClipper<Path> {
     final path = Path()
       ..moveTo(16, 0) // Move to the top left corner, with a 16 offset
       ..lineTo(size.width, 0) // Draw to the top right corner
-      ..lineTo(size.width, size.height - 16) // Draw to bottom right, with a 16 offset
-      ..lineTo(size.width - 0, size.height) // Draw to the bottom corner with a 16 offset
+      ..lineTo(size.width,
+          size.height - 16) // Draw to bottom right, with a 16 offset
+      ..lineTo(size.width - 0,
+          size.height) // Draw to the bottom corner with a 16 offset
       ..lineTo(0, size.height) // Draw to bottom left corner
       ..lineTo(0, 0) // Draw to the top left corner, with a 16 offset
       ..close();
@@ -60,9 +65,10 @@ class MyClipper extends CustomClipper<Path> {
 
 class MyPainter extends CustomPainter {
   final Color backgroundColor; // Background color of the container
-  final Color borderColor;      // Border color of the container
+  final Color borderColor; // Border color of the container
 
-  MyPainter(this.backgroundColor, this.borderColor); // Constructor to receive colors
+  MyPainter(
+      this.backgroundColor, this.borderColor); // Constructor to receive colors
 
   @override
   void paint(Canvas canvas, Size size) {

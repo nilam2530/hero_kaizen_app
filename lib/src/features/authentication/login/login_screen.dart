@@ -48,7 +48,8 @@ class LoginScreenState extends State<LoginScreen> {
           if (constraints.maxWidth < 600) {
             // Mobile Layout
             return _buildMobileLayout(context, authProvider);
-          } else if (constraints.maxWidth >= 600 && constraints.maxWidth < 1200) {
+          } else if (constraints.maxWidth >= 600 &&
+              constraints.maxWidth < 1200) {
             // Tablet Layout
             return _buildTabletWebLayout(context, authProvider);
           } else {
@@ -75,7 +76,8 @@ class LoginScreenState extends State<LoginScreen> {
     );
   }
 
-  Widget _buildTabletWebLayout(BuildContext context, AuthProvider authProvider) {
+  Widget _buildTabletWebLayout(
+      BuildContext context, AuthProvider authProvider) {
     return Container(
       decoration: const BoxDecoration(
         image: DecorationImage(
@@ -104,7 +106,8 @@ class LoginScreenState extends State<LoginScreen> {
           fit: BoxFit.fill,
         ),
       ),
-      child: SingleChildScrollView( // Add SingleChildScrollView here
+      child: SingleChildScrollView(
+        // Add SingleChildScrollView here
         child: SizedBox(
           height: height,
           width: width,
@@ -117,7 +120,8 @@ class LoginScreenState extends State<LoginScreen> {
               ),
               Expanded(
                 child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 50.0, vertical: 30), // Adjust padding
+                  padding: const EdgeInsets.symmetric(
+                      horizontal: 50.0, vertical: 30), // Adjust padding
                   child: Stack(
                     children: [
                       Container(
@@ -218,7 +222,8 @@ class LoginScreenState extends State<LoginScreen> {
   Widget _buildForm(AuthProvider authProvider) {
     return Form(
       key: _formKey,
-      child: SingleChildScrollView( // Add SingleChildScrollView here
+      child: SingleChildScrollView(
+        // Add SingleChildScrollView here
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -296,7 +301,8 @@ class LoginScreenState extends State<LoginScreen> {
 
   Widget _buildGoogleLoginButton(AuthProvider authProvider) {
     return PrimaryButton(
-      imageIcon: SvgPicture.asset(AppImages.googleLogo, height: 24.h, width: 24.w), // Responsive icon size
+      imageIcon: SvgPicture.asset(AppImages.googleLogo,
+          height: 24.h, width: 24.w), // Responsive icon size
       backgroundColor: AppColors.whiteColor,
       text: authProvider.loading ? 'Loading' : 'Sign in with Google',
       foregroundColor: Colors.black,
@@ -329,4 +335,3 @@ class LoginScreenState extends State<LoginScreen> {
     );
   }
 }
-

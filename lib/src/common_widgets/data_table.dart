@@ -43,7 +43,7 @@ class DataTableWidgetState extends State<DataTableWidget> {
     final totalPages = (_requests.length / _rowsPerPage).ceil();
 
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 10,horizontal: 20),
+      padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
       child: Column(
         children: [
           Container(
@@ -71,8 +71,8 @@ class DataTableWidgetState extends State<DataTableWidget> {
                 Expanded(
                     child: Align(
                         alignment: Alignment.centerLeft,
-                        child:
-                            Text("Mode Of Transportation", style: _textStyle()))),
+                        child: Text("Mode Of Transportation",
+                            style: _textStyle()))),
                 Expanded(
                     child: Align(
                         alignment: Alignment.centerLeft,
@@ -256,11 +256,14 @@ Widget _buildInfoRow(String label, String value) {
       const SizedBox(width: 40),
       const Text(":"),
       const SizedBox(width: 20),
-      Text(value,style: const TextStyle(
-         // color: AppColors.TxtColor
-        color: AppColors.darkGrey,
-        fontWeight: FontWeight.bold,
-      ),),
+      Text(
+        value,
+        style: const TextStyle(
+          // color: AppColors.TxtColor
+          color: AppColors.darkGrey,
+          fontWeight: FontWeight.bold,
+        ),
+      ),
     ],
   );
 }

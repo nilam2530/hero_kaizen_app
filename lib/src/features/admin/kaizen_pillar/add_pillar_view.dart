@@ -23,7 +23,7 @@ class _AddPillarViewState extends State<AddPillarView> {
     return Scaffold(
       backgroundColor: AppColors.whiteColor,
       body: SingleChildScrollView(
-        padding:  const EdgeInsets.all(16.0),
+        padding: const EdgeInsets.all(16.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -32,18 +32,16 @@ class _AddPillarViewState extends State<AddPillarView> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                   Padding(
+                  Padding(
                     padding: const EdgeInsets.only(left: 18.0),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.start,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(
-                          'Add New Pillar',
-                          style: textStyleFont18W600Black()
-                        ),
+                        Text('Add New Pillar',
+                            style: textStyleFont18W600Black()),
                         const SizedBox(height: 5),
-                         Text(
+                        Text(
                           'DashBoard | Kaizen Pillar | Add Pillar',
                           style: textStyleFont14W400Black(),
                         ),
@@ -67,11 +65,9 @@ class _AddPillarViewState extends State<AddPillarView> {
                                     width: 0.5,
                                     color: AppColors.outlineBorderColor),
                                 borderRadius: BorderRadius.circular(6)),
-                            child:  Center(
-                              child: Text(
-                                "Back",
-                                style: textStyleFont14W400White()
-                              ),
+                            child: Center(
+                              child: Text("Back",
+                                  style: textStyleFont14W400White()),
                             ),
                           ),
                         ),
@@ -87,15 +83,19 @@ class _AddPillarViewState extends State<AddPillarView> {
                             if (_validateFields(controller)) {
                               controller.addNewPillar(
                                 plantName: controller.plantNameController.text,
-                                pillarName: controller.pillarNameController.text,
-                                pillarHeadECNo: controller.pillarHeadECNoController.text,
+                                pillarName:
+                                    controller.pillarNameController.text,
+                                pillarHeadECNo:
+                                    controller.pillarHeadECNoController.text,
                                 sortOrder: controller.sortOrderController.text,
-                                status: "Pending",  // or any other status you want to assign
+                                status:
+                                    "Pending", // or any other status you want to assign
                               );
                               GoRouter.of(context).go('/shivendra');
                             } else {
                               ScaffoldMessenger.of(context).showSnackBar(
-                                const SnackBar(content: Text("Please fill all fields")),
+                                const SnackBar(
+                                    content: Text("Please fill all fields")),
                               );
                             }
                           },
@@ -105,7 +105,7 @@ class _AddPillarViewState extends State<AddPillarView> {
                             decoration: BoxDecoration(
                                 color: AppColors.sucessful,
                                 borderRadius: BorderRadius.circular(6)),
-                            child:  Center(
+                            child: Center(
                               child: Text(
                                 "Save",
                                 style: textStyleFont14W400White(),
@@ -142,7 +142,7 @@ class _AddPillarViewState extends State<AddPillarView> {
       children: [
         Row(
           children: [
-             SizedBox(
+            SizedBox(
               width: 100,
               child: Text(
                 "Plant Name: ",
@@ -168,12 +168,9 @@ class _AddPillarViewState extends State<AddPillarView> {
         const SizedBox(height: 10.0),
         Row(
           children: [
-             SizedBox(
+            SizedBox(
               width: 100,
-              child: Text(
-                "Pillar Name: ",
-                style: textStyleFont14W400Black()
-              ),
+              child: Text("Pillar Name: ", style: textStyleFont14W400Black()),
             ),
             Expanded(
               child: CustomTextField(
@@ -194,12 +191,10 @@ class _AddPillarViewState extends State<AddPillarView> {
         const SizedBox(height: 16.0),
         Row(
           children: [
-             SizedBox(
+            SizedBox(
               width: 100,
-              child: Text(
-                "Select Pillar Head: ",
-                style: textStyleFont14W400Black()
-              ),
+              child: Text("Select Pillar Head: ",
+                  style: textStyleFont14W400Black()),
             ),
             Expanded(
               child: CustomAnimatedDropdown<PillarModel>(
@@ -215,7 +210,7 @@ class _AddPillarViewState extends State<AddPillarView> {
         const SizedBox(height: 16.0),
         Row(
           children: [
-             SizedBox(
+            SizedBox(
               width: 100,
               child: Text(
                 "Pillar Head EC No: ",
@@ -241,7 +236,7 @@ class _AddPillarViewState extends State<AddPillarView> {
         const SizedBox(height: 16.0),
         Row(
           children: [
-             SizedBox(
+            SizedBox(
               width: 100,
               child: Text(
                 "Sort Order: ",

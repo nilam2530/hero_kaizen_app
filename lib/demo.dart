@@ -27,7 +27,8 @@ class KaizenFormState extends State<KaizenForm> {
 
   final TextEditingController sapCodeController = TextEditingController();
   final TextEditingController machineNameController = TextEditingController();
-  final TextEditingController departmentNameController = TextEditingController();
+  final TextEditingController departmentNameController =
+      TextEditingController();
   final TextEditingController sectionNameController = TextEditingController();
   final TextEditingController cellNumberController = TextEditingController();
   final TextEditingController cellNameController = TextEditingController();
@@ -73,7 +74,9 @@ class KaizenFormState extends State<KaizenForm> {
               Row(
                 children: [
                   Expanded(
-                    child: _buildDropdownField('Plant Name', selectedPlant, ['Gurgaon Plant'], (value) {
+                    child: _buildDropdownField(
+                        'Plant Name', selectedPlant, ['Gurgaon Plant'],
+                        (value) {
                       setState(() {
                         selectedPlant = value;
                       });
@@ -81,7 +84,8 @@ class KaizenFormState extends State<KaizenForm> {
                   ),
                   const SizedBox(width: 16.0),
                   Expanded(
-                    child: _buildDropdownField('Department', selectedDepartment, ['Department 1', 'Department 2'], (value) {
+                    child: _buildDropdownField('Department', selectedDepartment,
+                        ['Department 1', 'Department 2'], (value) {
                       setState(() {
                         selectedDepartment = value;
                       });
@@ -96,7 +100,8 @@ class KaizenFormState extends State<KaizenForm> {
               Row(
                 children: [
                   Expanded(
-                    child: _buildDropdownField('Category', selectedCategory, ['Category 1', 'Category 2'], (value) {
+                    child: _buildDropdownField('Category', selectedCategory,
+                        ['Category 1', 'Category 2'], (value) {
                       setState(() {
                         selectedCategory = value;
                       });
@@ -104,7 +109,8 @@ class KaizenFormState extends State<KaizenForm> {
                   ),
                   const SizedBox(width: 16.0),
                   Expanded(
-                    child: _buildDropdownField('Benefit Type', selectedBenefit, ['Benefit 1', 'Benefit 2'], (value) {
+                    child: _buildDropdownField('Benefit Type', selectedBenefit,
+                        ['Benefit 1', 'Benefit 2'], (value) {
                       setState(() {
                         selectedBenefit = value;
                       });
@@ -119,7 +125,9 @@ class KaizenFormState extends State<KaizenForm> {
               Row(
                 children: [
                   Expanded(
-                    child: _buildDropdownField('Unit of Measurement', selectedUOM, ['UOM 1', 'UOM 2'], (value) {
+                    child: _buildDropdownField(
+                        'Unit of Measurement', selectedUOM, ['UOM 1', 'UOM 2'],
+                        (value) {
                       setState(() {
                         selectedUOM = value;
                       });
@@ -127,7 +135,8 @@ class KaizenFormState extends State<KaizenForm> {
                   ),
                   const SizedBox(width: 16.0),
                   Expanded(
-                    child: _buildTextField('Machine SAP Code', sapCodeController),
+                    child:
+                        _buildTextField('Machine SAP Code', sapCodeController),
                   ),
                 ],
               ),
@@ -138,7 +147,9 @@ class KaizenFormState extends State<KaizenForm> {
               Row(
                 children: [
                   Expanded(
-                    child: _buildDropdownField('Pillar Name', selectedPillar, ['Pillar 1', 'Pillar 2'], (value) {
+                    child: _buildDropdownField(
+                        'Pillar Name', selectedPillar, ['Pillar 1', 'Pillar 2'],
+                        (value) {
                       setState(() {
                         selectedPillar = value;
                       });
@@ -146,7 +157,9 @@ class KaizenFormState extends State<KaizenForm> {
                   ),
                   const SizedBox(width: 16.0),
                   Expanded(
-                    child: _buildDropdownField('Section', selectedSection, ['Section 1', 'Section 2'], (value) {
+                    child: _buildDropdownField(
+                        'Section', selectedSection, ['Section 1', 'Section 2'],
+                        (value) {
                       setState(() {
                         selectedSection = value;
                       });
@@ -159,7 +172,9 @@ class KaizenFormState extends State<KaizenForm> {
               Row(
                 children: [
                   Expanded(
-                    child: _buildDropdownField('Loss No & Name', selectedLoss, ['Loss 1', 'Loss 2'], (value) {
+                    child: _buildDropdownField(
+                        'Loss No & Name', selectedLoss, ['Loss 1', 'Loss 2'],
+                        (value) {
                       setState(() {
                         selectedLoss = value;
                       });
@@ -167,7 +182,8 @@ class KaizenFormState extends State<KaizenForm> {
                   ),
                   const SizedBox(width: 16.0),
                   Expanded(
-                    child: _buildTextField('Machine Name', machineNameController),
+                    child:
+                        _buildTextField('Machine Name', machineNameController),
                   ),
                 ],
               ),
@@ -178,7 +194,9 @@ class KaizenFormState extends State<KaizenForm> {
               Row(
                 children: [
                   Expanded(
-                    child: _buildRadioButtonGroup('Saving Type', ['One-Time', 'Recurring'], isOneTime, (value) {
+                    child: _buildRadioButtonGroup(
+                        'Saving Type', ['One-Time', 'Recurring'], isOneTime,
+                        (value) {
                       setState(() {
                         isOneTime = value == 'One-Time';
                       });
@@ -186,7 +204,9 @@ class KaizenFormState extends State<KaizenForm> {
                   ),
                   const SizedBox(width: 16.0),
                   Expanded(
-                    child: _buildRadioButtonGroup('Machine Type', ['Machine', 'Non-Machine'], isMachine, (value) {
+                    child: _buildRadioButtonGroup(
+                        'Machine Type', ['Machine', 'Non-Machine'], isMachine,
+                        (value) {
                       setState(() {
                         isMachine = value == 'Machine';
                       });
@@ -196,10 +216,24 @@ class KaizenFormState extends State<KaizenForm> {
               ),
               Row(
                 children: [
-                  Expanded(child: MyCustomButton(name: 'Hello', textColor: Colors.white, btnColor: AppColors.darkMaron, onTap: () {  },)),
-                  const SizedBox(width: 20,),
-                  Expanded(child: MyCustomButton(icon: Image.asset(AppImages.appBarProfile),name: 'my icon', textColor: Colors.white, btnColor: AppColors.darkMaron, onTap: () {  },))
-
+                  Expanded(
+                      child: MyCustomButton(
+                    name: 'Hello',
+                    textColor: Colors.white,
+                    btnColor: AppColors.darkMaron,
+                    onTap: () {},
+                  )),
+                  const SizedBox(
+                    width: 20,
+                  ),
+                  Expanded(
+                      child: MyCustomButton(
+                    icon: Image.asset(AppImages.appBarProfile),
+                    name: 'my icon',
+                    textColor: Colors.white,
+                    btnColor: AppColors.darkMaron,
+                    onTap: () {},
+                  ))
                 ],
               ),
               const CustomContainer(
@@ -215,7 +249,6 @@ class KaizenFormState extends State<KaizenForm> {
     );
   }
 
-
   Widget _buildSectionTitle(String title) {
     return Padding(
       padding: const EdgeInsets.only(bottom: 8.0),
@@ -229,7 +262,8 @@ class KaizenFormState extends State<KaizenForm> {
     );
   }
 
-  Widget _buildDropdownField(String label, String? value, List<String> items, ValueChanged<String?> onChanged) {
+  Widget _buildDropdownField(String label, String? value, List<String> items,
+      ValueChanged<String?> onChanged) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -253,7 +287,8 @@ class KaizenFormState extends State<KaizenForm> {
             border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(8.0),
             ),
-            contentPadding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 12.0),
+            contentPadding:
+                const EdgeInsets.symmetric(vertical: 10.0, horizontal: 12.0),
           ),
         ),
       ],
@@ -277,14 +312,16 @@ class KaizenFormState extends State<KaizenForm> {
             border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(8.0),
             ),
-            contentPadding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 12.0),
+            contentPadding:
+                const EdgeInsets.symmetric(vertical: 10.0, horizontal: 12.0),
           ),
         ),
       ],
     );
   }
 
-  Widget _buildRadioButtonGroup(String label, List<String> options, bool selected, ValueChanged<String?> onChanged) {
+  Widget _buildRadioButtonGroup(String label, List<String> options,
+      bool selected, ValueChanged<String?> onChanged) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [

@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class CustomNormalContainer extends StatelessWidget {
   final Widget child;
 
-  CustomNormalContainer({required this.child});
+  const CustomNormalContainer({super.key, required this.child});
 
   @override
   Widget build(BuildContext context) {
@@ -20,4 +20,4 @@ class CustomNormalContainer extends StatelessWidget {
   }
 }
 
-const space1=SizedBox(height:15);
+const space1 = SizedBox(height: 15);

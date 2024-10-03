@@ -15,16 +15,17 @@ import 'package:hero_kaizen_app/src/features/view_request/view_request.dart';
 import 'package:hero_kaizen_app/src/routing/not_found_screen.dart';
 import 'package:hero_kaizen_app/src/routing/route_names.dart';
 import 'package:hero_kaizen_app/src/features/sidebar/shell_layout.dart';
+import '../features/admin/kaizen_Machine/kaizen_machine_view.dart';
 import '../features/admin/kaizen_benefit/kaizen_benifit_view.dart';
 import '../features/admin/kaizen_pillar/add_pillar_view.dart';
-import '../features/view_request_status/view_request.dart';
+import '../features/dashboard1/tab_dashboard.dart';
 
 class AppRouter {
   late final GoRouter goRouter;
 
   AppRouter() {
     goRouter = GoRouter(
-      initialLocation: '/login',
+      initialLocation: AppRoute.splash.getPath,
       debugLogDiagnostics: true,
       routes: [
         GoRoute(
@@ -37,7 +38,11 @@ class AppRouter {
           name: AppRoute.login.getName,
           builder: (context, state) => const LoginScreen(),
         ),
-        // Define a ShellRoute for the side menu and dashboard screens
+        GoRoute(
+          path: AppRoute.tabDashboard.getPath,
+          name: AppRoute.tabDashboard.getName,
+          builder: (context, state) => const TabDashboard(),
+        ),
         ShellRoute(
           builder: (context, state, child) {
             return ShellLayout(child: child); // Your shell layout widget
@@ -67,7 +72,6 @@ class AppRouter {
               path: '/kaizenform',
               builder: (context, state) => const KaizensTabs(),
             ),
-            //Kaizen Admin
             GoRoute(
               path: AppRoute.kaizenPillarView.getPath,
               name: AppRoute.kaizenPillarView.getName,
@@ -101,13 +105,19 @@ class AppRouter {
             GoRoute(
               path: AppRoute.requestStatus.getPath,
               name: AppRoute.requestStatus.getName,
-              builder: (context, state) => ViewRequestStatus(),
+              builder: (context, state) => const ViewRequestScreen(),
             ),
             GoRoute(
               path: AppRoute.kaizenBenefit.getPath,
               name: AppRoute.kaizenBenefit.getName,
               builder: (context, state) => const KaizenBenefitView(),
             ),
+            GoRoute(
+              path: AppRoute.kaizenMachineView.getPath,
+              name: AppRoute.kaizenMachineView.getName,
+              builder: (context, state) => const KaizenMachineView(),
+            ),
+
           ],
         ),
       ],

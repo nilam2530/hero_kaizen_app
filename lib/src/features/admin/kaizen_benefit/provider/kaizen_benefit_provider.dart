@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import '../../../../models/kaizen_theme_model.dart';
 import '../../../../models/pillar_model.dart';
 
-
-
 class KaizenBenefitProvider with ChangeNotifier {
   static const int _rowsPerPage = 10;
   int _currentPage = 0;
@@ -12,7 +10,7 @@ class KaizenBenefitProvider with ChangeNotifier {
   String selectetThemeStatus = '';
   List<KaizenThemeTableModel> newData = List.generate(
     50,
-        (index) => KaizenThemeTableModel(
+    (index) => KaizenThemeTableModel(
       id: (index + 1).toString(),
       name: "Plant ${index + 1}",
       sortNo: (index + 1).toString(),

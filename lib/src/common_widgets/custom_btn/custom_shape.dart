@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hero_kaizen_app/src/common_widgets/custom_btn/custom_elevated_btn.dart';
+
 class CustomShapeWidget extends StatelessWidget {
   final double width;
   final double height;
@@ -20,5 +21,3 @@ class CustomShapeWidget extends StatelessWidget {
     );
   }
 }
-
-

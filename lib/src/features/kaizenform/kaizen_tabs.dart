@@ -49,7 +49,8 @@ class AddRequestScreen extends StatelessWidget {
           isScrollable: true,
           tabs: _tabTitles.map((title) {
             return Padding(
-              padding: const EdgeInsets.only(left: 5,right: 5), // Padding of 10 on all sides
+              padding: const EdgeInsets.only(
+                  left: 5, right: 5), // Padding of 10 on all sides
               child: Tab(
                 child: Text(
                   title,
@@ -65,7 +66,8 @@ class AddRequestScreen extends StatelessWidget {
           indicator: const BoxDecoration(
             color: Colors.red, // Selected tab background color
             border: Border(
-              bottom: BorderSide(color: Colors.red, width: 4.0), // Red underline
+              bottom:
+                  BorderSide(color: Colors.red, width: 4.0), // Red underline
             ),
           ),
         ),

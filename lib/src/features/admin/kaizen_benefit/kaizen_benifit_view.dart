@@ -21,7 +21,7 @@ class _KaizenBenefitViewState extends State<KaizenBenefitView> {
   @override
   Widget build(BuildContext context) {
     final controller = Provider.of<KaizenBenefitProvider>(context);
-        return ChangeNotifierProvider(
+    return ChangeNotifierProvider(
         create: (context) => KaizenBenefitProvider(),
         child: Scaffold(
           backgroundColor: AppColors.whiteColor,
@@ -78,7 +78,7 @@ class _KaizenBenefitViewState extends State<KaizenBenefitView> {
                   child: Container(
                     decoration: BoxDecoration(
                         border:
-                        Border.all(width: 0.5, color: AppColors.lightGrey),
+                            Border.all(width: 0.5, color: AppColors.lightGrey),
                         borderRadius: BorderRadius.circular(12)),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.start,
@@ -93,9 +93,11 @@ class _KaizenBenefitViewState extends State<KaizenBenefitView> {
                         ),
                         const Divider(),
                         Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 12.0),  // Adjust padding as needed
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 12.0), // Adjust padding as needed
                           child: Row(
-                            mainAxisAlignment: MainAxisAlignment.end,  // Align the button to the right
+                            mainAxisAlignment: MainAxisAlignment
+                                .end, // Align the button to the right
                             children: [
                               GestureDetector(
                                 onTap: () {
@@ -103,8 +105,10 @@ class _KaizenBenefitViewState extends State<KaizenBenefitView> {
                                   controller.resetData();
                                 },
                                 child: Container(
-                                  height: MediaQuery.of(context).size.height * 0.05,
-                                  width: MediaQuery.of(context).size.width * 0.08,
+                                  height:
+                                      MediaQuery.of(context).size.height * 0.05,
+                                  width:
+                                      MediaQuery.of(context).size.width * 0.08,
                                   decoration: BoxDecoration(
                                     color: Colors.green,
                                     borderRadius: BorderRadius.circular(4),
@@ -132,40 +136,48 @@ class _KaizenBenefitViewState extends State<KaizenBenefitView> {
                               'Status',
                             ],
                             columnBuilders: [
-                                  (data) => Padding(
-                                padding: const EdgeInsets.all(8.0),
-                                child: Text(data.id, style: textStyle()),
-                              ),
-                                  (data) => Text(data.name, style: textStyle()),
-                                  (data) => Text(data.sortNo, style: textStyle()),
-                                  (data) => Padding(
-                                    padding: EdgeInsets.only(left: 60.h,right: 60.h ),
+                              (data) => Padding(
+                                    padding: const EdgeInsets.all(8.0),
+                                    child: Text(data.id, style: textStyle()),
+                                  ),
+                              (data) => Text(data.name, style: textStyle()),
+                              (data) => Text(data.sortNo, style: textStyle()),
+                              (data) => Padding(
+                                    padding: EdgeInsets.only(
+                                        left: 60.h, right: 60.h),
                                     child: Container(
                                       height:
-                                      MediaQuery.of(context).size.height * 0.05,
-                                      width: MediaQuery.of(context).size.width * 0.08,
-                                                                    decoration: BoxDecoration(
-                                    color: data.status == 'Enable' ? Colors.green : AppColors.redColor,  // Set background color for "Enable"
-                                    borderRadius: BorderRadius.circular(4),
-                                                                    ),
-                                                                    child: Center(
-                                                                      child: Text(
-                                                                                                          data.status,
-                                                                                                          style: TextStyle(
-                                                                                                            color: data.status == 'Enable' ? Colors.white : AppColors.redColor,  // Set text color to white for "Enable"
-                                                                                                            fontWeight: FontWeight.w500,
-                                                                                                          ),
-                                                                      ),
-                                                                    ),
-                                                                  ),
+                                          MediaQuery.of(context).size.height *
+                                              0.05,
+                                      width: MediaQuery.of(context).size.width *
+                                          0.08,
+                                      decoration: BoxDecoration(
+                                        color: data.status == 'Enable'
+                                            ? Colors.green
+                                            : AppColors
+                                                .redColor, // Set background color for "Enable"
+                                        borderRadius: BorderRadius.circular(4),
+                                      ),
+                                      child: Center(
+                                        child: Text(
+                                          data.status,
+                                          style: TextStyle(
+                                            color: data.status == 'Enable'
+                                                ? Colors.white
+                                                : AppColors
+                                                    .redColor, // Set text color to white for "Enable"
+                                            fontWeight: FontWeight.w500,
+                                          ),
+                                        ),
+                                      ),
+                                    ),
                                   ),
-
                             ],
                             expandedContentBuilder: (data) => [
                               const SizedBox(height: 10),
                               Padding(
                                 padding:
-                                const EdgeInsets.symmetric(horizontal: 20),
+                                    const EdgeInsets.symmetric(horizontal: 20),
                                 child: Text(data.action, style: textStyle()),
                               ),
                             ],

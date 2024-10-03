@@ -14,6 +14,7 @@ class CustomTextField extends StatefulWidget {
   final String? initialValue;
   final bool isDarkThemed;
   final Widget? suffix;
+  final Widget? prefix;
   final bool? enabled;
   final Color? passIconColor;
   final GlobalKey<CustomTextFieldState>? fieldKey;
@@ -34,6 +35,7 @@ class CustomTextField extends StatefulWidget {
     this.enabled,
     this.passIconColor,
     this.fieldKey,
+    this.prefix,
     this.maxLines = 1,
     this.controller,
   });
@@ -106,6 +108,8 @@ class CustomTextFieldState extends State<CustomTextField> {
                 autovalidateMode: AutovalidateMode.onUserInteraction,
                 validator: widget.validator,
                 enabled: widget.enabled ?? true,
+                cursorHeight: 16,
+                cursorColor: AppColors.secondaryTextColor,
                 obscureText: widget.isPassword && !_isPasswordVisible,
                 onChanged: (value) {
                   provider.onChanged(value);
@@ -156,9 +160,10 @@ class CustomTextFieldState extends State<CustomTextField> {
                         ),
                       )
                           : null),
+                  prefixIcon: widget.prefix,
                   hintText: widget.labelText,
-                  hintStyle: const TextStyle(color: AppColors.secondaryTextColor),
-                ),
+                  hintStyle: const TextStyle(fontSize: 14,color: AppColors.secondaryTextColor),
+                ),expands: false,
                 style: TextStyle(
                   color: widget.isDarkThemed ? Colors.white : AppColors.secondaryTextColor,
                 ),

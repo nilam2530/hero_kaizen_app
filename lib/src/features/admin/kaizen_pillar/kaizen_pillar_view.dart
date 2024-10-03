@@ -37,64 +37,73 @@ class _KaizenPillarViewState extends State<KaizenPillarView> {
                 padding: const EdgeInsets.all(1.0),
                 child: isMobile
                     ? Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.only(left: 18.0),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.start,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text('Kaizen Pillar', style: textStyleFont18W600Black()),
-                          const SizedBox(height: 5),
-                          Text('DashBoard | Kaizen Pillar', style: textStyleFont14W400Black()),
+                          Padding(
+                            padding: const EdgeInsets.only(left: 18.0),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text('Kaizen Pillar',
+                                    style: textStyleFont18W600Black()),
+                                const SizedBox(height: 5),
+                                Text('DashBoard | Kaizen Pillar',
+                                    style: textStyleFont14W400Black()),
+                              ],
+                            ),
+                          ),
+                          const SizedBox(height: 10),
+                          Padding(
+                            padding: const EdgeInsets.only(
+                                right:
+                                    56.0), // Right overflow padding for mobile
+                            child: MyCustomButton(
+                              name: 'Add Theme',
+                              textColor: AppColors.whiteColor,
+                              icon: Image.asset(AppImages.addNew,
+                                  width: 16, height: 16),
+                              btnColor: AppColors.darkMaron,
+                              onTap: () {
+                                GoRouter.of(context).go('/kaizenAddPillar');
+                              },
+                            ),
+                          ),
                         ],
-                      ),
-                    ),
-                    const SizedBox(height: 10),
-                    Padding(
-                      padding: const EdgeInsets.only(right: 56.0), // Right overflow padding for mobile
-                      child: MyCustomButton(
-                        name: 'Add Theme',
-                        textColor: AppColors.whiteColor,
-                        icon: Image.asset(AppImages.addNew, width: 16, height: 16),
-                        btnColor: AppColors.darkMaron,
-                        onTap: () {
-                          GoRouter.of(context).go('/kaizenAddPillar');
-                        },
-                      ),
-                    ),
-                  ],
-                )
+                      )
                     : Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.only(left: 18.0),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Text('Kaizen Pillar', style: textStyleFont18W600Black()),
-                          const SizedBox(height: 5),
-                          Text('DashBoard | Kaizen Pillar', style: textStyleFont14W400Black()),
+                          Padding(
+                            padding: const EdgeInsets.only(left: 18.0),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text('Kaizen Pillar',
+                                    style: textStyleFont18W600Black()),
+                                const SizedBox(height: 5),
+                                Text('DashBoard | Kaizen Pillar',
+                                    style: textStyleFont14W400Black()),
+                              ],
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(
+                                right: 18.0), // General right overflow padding
+                            child: MyCustomButton(
+                              name: 'Add Theme',
+                              textColor: AppColors.whiteColor,
+                              icon: Image.asset(AppImages.addNew,
+                                  width: 16, height: 16),
+                              btnColor: AppColors.darkMaron,
+                              onTap: () {
+                                GoRouter.of(context).go('/kaizenAddPillar');
+                              },
+                            ),
+                          ),
                         ],
                       ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(right: 18.0), // General right overflow padding
-                      child: MyCustomButton(
-                        name: 'Add Theme',
-                        textColor: AppColors.whiteColor,
-                        icon: Image.asset(AppImages.addNew, width: 16, height: 16),
-                        btnColor: AppColors.darkMaron,
-                        onTap: () {
-                          GoRouter.of(context).go('/kaizenAddPillar');
-                        },
-                      ),
-                    ),
-                  ],
-                ),
               ),
               const SizedBox(height: 20),
               Padding(
@@ -110,122 +119,135 @@ class _KaizenPillarViewState extends State<KaizenPillarView> {
                     children: [
                       Padding(
                         padding: const EdgeInsets.all(8.0),
-                        child: Text("List Record", style: textStyleFont14W400Black()),
+                        child: Text("List Record",
+                            style: textStyleFont14W400Black()),
                       ),
                       const Divider(),
                       isMobile
                           ? Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Container(
-                              height: screenHeight * 0.05,
-                              width: screenWidth * 0.3, // Adjusted width for mobile
-                              decoration: BoxDecoration(
-                                color: AppColors.greenColor,
-                                borderRadius: BorderRadius.circular(4),
-                              ),
-                              child: Center(
-                                child: Text(
-                                  "Reset",
-                                  style: textStyleFont14W400White(),
-                                ),
-                              ),
-                            ),
-                          ),
-                          const SizedBox(height: 10),
-                          Padding(
-                            padding: const EdgeInsets.only(right: 56.0), // Right overflow padding for search on mobile
-                            child: SizedBox(
-                              height: screenHeight * 0.06,
-                              width: screenWidth * 0.8, // Adjusted width for mobile search bar
-                              child: Container(
-                                padding: const EdgeInsets.symmetric(horizontal: 12),
-                                decoration: BoxDecoration(
-                                  color: AppColors.dark3Grey,
-                                  borderRadius: BorderRadius.circular(18),
-                                  border: Border.all(color: AppColors.dark3Grey, width: 1),
-                                ),
-                                child: const Row(
-                                  children: [
-                                    Icon(Icons.search, size: 20),
-                                    SizedBox(width: 8),
-                                    Expanded(
-                                      child: Padding(
-                                        padding: EdgeInsets.only(bottom: 14),
-                                        child: TextField(
-                                          decoration: InputDecoration(
-                                            hintText: "Search",
-                                            border: InputBorder.none,
-                                          ),
-                                          style: TextStyle(fontSize: 14),
-                                        ),
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: Container(
+                                    height: screenHeight * 0.05,
+                                    width: screenWidth *
+                                        0.3, // Adjusted width for mobile
+                                    decoration: BoxDecoration(
+                                      color: AppColors.greenColor,
+                                      borderRadius: BorderRadius.circular(4),
+                                    ),
+                                    child: Center(
+                                      child: Text(
+                                        "Reset",
+                                        style: textStyleFont14W400White(),
                                       ),
                                     ),
-                                  ],
+                                  ),
                                 ),
-                              ),
-                            ),
-                          ),
-                        ],
-                      )
+                                const SizedBox(height: 10),
+                                Padding(
+                                  padding: const EdgeInsets.only(
+                                      right:
+                                          56.0), // Right overflow padding for search on mobile
+                                  child: SizedBox(
+                                    height: screenHeight * 0.06,
+                                    width: screenWidth *
+                                        0.8, // Adjusted width for mobile search bar
+                                    child: Container(
+                                      padding: const EdgeInsets.symmetric(
+                                          horizontal: 12),
+                                      decoration: BoxDecoration(
+                                        color: AppColors.dark3Grey,
+                                        borderRadius: BorderRadius.circular(18),
+                                        border: Border.all(
+                                            color: AppColors.dark3Grey,
+                                            width: 1),
+                                      ),
+                                      child: const Row(
+                                        children: [
+                                          Icon(Icons.search, size: 20),
+                                          SizedBox(width: 8),
+                                          Expanded(
+                                            child: Padding(
+                                              padding:
+                                                  EdgeInsets.only(bottom: 14),
+                                              child: TextField(
+                                                decoration: InputDecoration(
+                                                  hintText: "Search",
+                                                  border: InputBorder.none,
+                                                ),
+                                                style: TextStyle(fontSize: 14),
+                                              ),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            )
                           : Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Container(
-                              height: screenHeight * 0.05,
-                              width: screenWidth * 0.08,
-                              decoration: BoxDecoration(
-                                color: AppColors.greenColor,
-                                borderRadius: BorderRadius.circular(4),
-                              ),
-                              child: Center(
-                                child: Text(
-                                  "Reset",
-                                  style: textStyleFont14W400White(),
-                                ),
-                              ),
-                            ),
-                          ),
-                          const SizedBox(height: 10),
-                          Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: SizedBox(
-                              height: screenHeight * 0.06,
-                              width: screenWidth * 0.25,
-                              child: Container(
-                                padding: const EdgeInsets.symmetric(horizontal: 12),
-                                decoration: BoxDecoration(
-                                  color: AppColors.dark3Grey,
-                                  borderRadius: BorderRadius.circular(18),
-                                  border: Border.all(color: AppColors.dark3Grey, width: 1),
-                                ),
-                                child: const Row(
-                                  children: [
-                                    Icon(Icons.search, size: 20),
-                                    SizedBox(width: 8),
-                                    Expanded(
-                                      child: Padding(
-                                        padding: EdgeInsets.only(bottom: 14),
-                                        child: TextField(
-                                          decoration: InputDecoration(
-                                            hintText: "Search",
-                                            border: InputBorder.none,
-                                          ),
-                                          style: TextStyle(fontSize: 14),
-                                        ),
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: Container(
+                                    height: screenHeight * 0.05,
+                                    width: screenWidth * 0.08,
+                                    decoration: BoxDecoration(
+                                      color: AppColors.greenColor,
+                                      borderRadius: BorderRadius.circular(4),
+                                    ),
+                                    child: Center(
+                                      child: Text(
+                                        "Reset",
+                                        style: textStyleFont14W400White(),
                                       ),
                                     ),
-                                  ],
+                                  ),
                                 ),
-                              ),
+                                const SizedBox(height: 10),
+                                Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: SizedBox(
+                                    height: screenHeight * 0.06,
+                                    width: screenWidth * 0.25,
+                                    child: Container(
+                                      padding: const EdgeInsets.symmetric(
+                                          horizontal: 12),
+                                      decoration: BoxDecoration(
+                                        color: AppColors.dark3Grey,
+                                        borderRadius: BorderRadius.circular(18),
+                                        border: Border.all(
+                                            color: AppColors.dark3Grey,
+                                            width: 1),
+                                      ),
+                                      child: const Row(
+                                        children: [
+                                          Icon(Icons.search, size: 20),
+                                          SizedBox(width: 8),
+                                          Expanded(
+                                            child: Padding(
+                                              padding:
+                                                  EdgeInsets.only(bottom: 14),
+                                              child: TextField(
+                                                decoration: InputDecoration(
+                                                  hintText: "Search",
+                                                  border: InputBorder.none,
+                                                ),
+                                                style: TextStyle(fontSize: 14),
+                                              ),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ],
                             ),
-                          ),
-                        ],
-                      ),
                       const SizedBox(height: 10),
                       ConstrainedBox(
                         constraints: const BoxConstraints(maxHeight: 300),
@@ -240,25 +262,27 @@ class _KaizenPillarViewState extends State<KaizenPillarView> {
                             'Status',
                           ],
                           columnBuilders: [
-                                (data) => Text(data.id, style: textStyle()),
-                                (data) => Text(data.plantName, style: textStyle()),
-                                (data) => Text(data.pillarName, style: textStyle()),
-                                (data) => Text(data.pillarHeadECNo, style: textStyle()),
-                                (data) => Text(data.sortNo, style: textStyle()),
-                                (data) => Text(
-                              data.status,
-                              style: TextStyle(
-                                color: data.status == 'Pending'
-                                    ? AppColors.redColor
-                                    : AppColors.greenColor,
-                                fontWeight: FontWeight.w500,
-                              ),
-                            ),
+                            (data) => Text(data.id, style: textStyle()),
+                            (data) => Text(data.plantName, style: textStyle()),
+                            (data) => Text(data.pillarName, style: textStyle()),
+                            (data) =>
+                                Text(data.pillarHeadECNo, style: textStyle()),
+                            (data) => Text(data.sortNo, style: textStyle()),
+                            (data) => Text(
+                                  data.status,
+                                  style: TextStyle(
+                                    color: data.status == 'Pending'
+                                        ? AppColors.redColor
+                                        : AppColors.greenColor,
+                                    fontWeight: FontWeight.w500,
+                                  ),
+                                ),
                           ],
                           expandedContentBuilder: (data) => [
                             const SizedBox(height: 10),
                             Padding(
-                              padding: const EdgeInsets.symmetric(horizontal: 20),
+                              padding:
+                                  const EdgeInsets.symmetric(horizontal: 20),
                               child: Text(data.action, style: textStyle()),
                             ),
                           ],

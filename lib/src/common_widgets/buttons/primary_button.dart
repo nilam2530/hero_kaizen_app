@@ -35,7 +35,9 @@ class PrimaryButton extends StatelessWidget {
           flex: fullWidth ? 1 : 2,
           child: ElevatedButton(
             style: ElevatedButton.styleFrom(
-              padding: EdgeInsets.symmetric(vertical: 14.h, horizontal: 28.w), // Responsive padding using ScreenUtil
+              padding: EdgeInsets.symmetric(
+                  vertical: 14.h,
+                  horizontal: 28.w), // Responsive padding using ScreenUtil
               minimumSize: Size(430.w, 44.h), // Set a responsive minimum size
               backgroundColor: backgroundColor,
               foregroundColor: foregroundColor,
@@ -54,14 +56,18 @@ class PrimaryButton extends StatelessWidget {
             ),
             onPressed: onPressed,
             child: Opacity(
-              opacity: onPressed == null ? 0.5 : 1.0, // Adjust opacity based on button state
+              opacity: onPressed == null
+                  ? 0.5
+                  : 1.0, // Adjust opacity based on button state
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   if (imageIcon != null) ...[
                     imageIcon!, // Display the imageIcon if it's provided
-                    SizedBox(width: 10.w), // Responsive spacing between icon and text
+                    SizedBox(
+                        width:
+                            10.w), // Responsive spacing between icon and text
                   ],
                   Text(
                     text,

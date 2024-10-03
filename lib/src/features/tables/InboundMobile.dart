@@ -9,8 +9,6 @@ class InboundMobile extends StatefulWidget {
 
 class InboundMobileState extends State<InboundMobile> {
   String? _modeOfTransportation;
-
-  // Text field controllers
   final _pickupAddressController = TextEditingController();
   final _pickupPincodeController = TextEditingController();
   final _destinationAddressController = TextEditingController();
@@ -30,7 +28,6 @@ class InboundMobileState extends State<InboundMobile> {
   @override
   Widget build(BuildContext context) {
     bool isMobile = MediaQuery.of(context).size.width < 600;
-
     return ListView(
       padding: const EdgeInsets.all(10.0),
       children: [
@@ -39,7 +36,6 @@ class InboundMobileState extends State<InboundMobile> {
           style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
         ),
         const SizedBox(height: 10),
-
         const Text(
           'Transport Details',
           style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
@@ -157,15 +153,14 @@ class InboundMobileState extends State<InboundMobile> {
                       });
                     }
                   },
-                  controller: TextEditingController(
-                      text: _pickupDate?.toString()),
+                  controller:
+                      TextEditingController(text: _pickupDate?.toString()),
                 ),
                 isMobile: isMobile,
               ),
             ],
           ),
         ),
-
         const Text(
           'Pickup Details',
           style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
@@ -207,7 +202,6 @@ class InboundMobileState extends State<InboundMobile> {
             ],
           ),
         ),
-
         const Text(
           'Package Details',
           style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
@@ -264,8 +258,8 @@ class InboundMobileState extends State<InboundMobile> {
     );
   }
 
-  Widget _buildInputField({required String label, required Widget widget, required bool isMobile}) {
-    return Padding(
+  Widget _buildInputField(
+      {required String label, required Widget widget, required bool isMobile}) {return Padding(
       padding: const EdgeInsets.all(10.0),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -274,12 +268,11 @@ class InboundMobileState extends State<InboundMobile> {
           isMobile
               ? widget // Show as full width
               : Row(
-            children: [Expanded(child: widget)],
-          ),
+                  children: [Expanded(child: widget)],
+                ),
         ],
       ),
-    );
-  }
+    );}
 
   Widget _buildAttachmentField({required bool isMobile}) {
     return Padding(
@@ -303,7 +296,8 @@ class InboundMobileState extends State<InboundMobile> {
                 children: [
                   Padding(
                     padding: EdgeInsets.all(10.0),
-                    child: Text('Upload File', style: TextStyle(color: Colors.grey)),
+                    child: Text('Upload File',
+                        style: TextStyle(color: Colors.grey)),
                   ),
                   Padding(
                     padding: EdgeInsets.all(10.0),

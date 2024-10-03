@@ -34,7 +34,8 @@ class CustomDataTableWidget<T> extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    bool isMobile = MediaQuery.of(context).size.width < 600;  // Determine if mobile
+    bool isMobile =
+        MediaQuery.of(context).size.width < 600; // Determine if mobile
 
     return isMobile ? _buildMobileLayout(context) : _buildTableLayout(context);
   }
@@ -57,7 +58,6 @@ class CustomDataTableWidget<T> extends StatelessWidget {
               borderRadius: BorderRadius.circular(6),
             ),
             child: Column(
-
               children: [
                 _buildPaginationControls(context, totalPages, true),
                 _buildHeaderRow(false),
@@ -66,17 +66,22 @@ class CustomDataTableWidget<T> extends StatelessWidget {
                     child: Column(
                       children: List.generate(
                         paginatedData.length,
-                            (index) {
+                        (index) {
                           final dataItem = paginatedData[index];
                           final actualIndex =
                               provider.currentPage * rowsPerPage + index;
-                          final isExpanded = provider.expandedRows.contains(actualIndex);
+                          final isExpanded =
+                              provider.expandedRows.contains(actualIndex);
                           return Column(
                             children: [
-                              _buildDataRow(context, dataItem, actualIndex, isExpanded, false),
+                              _buildDataRow(context, dataItem, actualIndex,
+                                  isExpanded, false),
                               if (isExpanded && expandedContentBuilder != null)
                                 _buildExpandedRow(dataItem, false),
-                              Divider(thickness: 1, height: 1, color: Colors.grey[300]),
+                              Divider(
+                                  thickness: 1,
+                                  height: 1,
+                                  color: Colors.grey[300]),
                             ],
                           );
                         },
@@ -131,8 +136,8 @@ class CustomDataTableWidget<T> extends StatelessWidget {
                         flex: 2,
                         child: Container(
                             decoration: BoxDecoration(
-                              color: index % 2 == 0 ? evenRowColor : oddRowColor,
-
+                              color:
+                                  index % 2 == 0 ? evenRowColor : oddRowColor,
                             ),
                             child: columnBuilders[columnIndex](dataItem)),
                       ),
@@ -166,7 +171,10 @@ class CustomDataTableWidget<T> extends StatelessWidget {
           return Expanded(
             child: Text(
               columnTitles[index],
-              style: headerStyle ?? TextStyle(fontWeight: FontWeight.w500, fontSize: isMobile ? 12 : 14),
+              style: headerStyle ??
+                  TextStyle(
+                      fontWeight: FontWeight.w500,
+                      fontSize: isMobile ? 12 : 14),
             ),
           );
         }),
@@ -174,8 +182,9 @@ class CustomDataTableWidget<T> extends StatelessWidget {
     );
   }
 
-  // Data row for table layout
-  Widget _buildDataRow(BuildContext context, T dataItem, int index, bool isExpanded, bool isMobile) {
+// Data row for table layout
+  Widget _buildDataRow(BuildContext context, T dataItem, int index,
+      bool isExpanded, bool isMobile) {
     final provider = context.read<CustomDataTableProvider>();
     return GestureDetector(
       onTap: expandableRows ? () => provider.toggleRowExpansion(index) : null,
@@ -189,23 +198,21 @@ class CustomDataTableWidget<T> extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    IconButton(
-                      icon: const Icon(
-                        Icons.edit,
-                        color: Colors.green,
-                        size: 16,
-                      ),
+                    _buildActionButton(
+                      icon: Icons.delete,
+                      color: Colors.red,
+                      label: "Delete",
+                      onPressed: () {},
+                    ),
+                    const SizedBox(
+                        width: 10), // You can remove this for no space
+                    _buildActionButton(
+                      icon: Icons.edit,
+                      color: Colors.green,
+                      label: "Edit",
                       onPressed: () {
                         provider.toggleRowExpansion(index);
                       },
-                    ),
-                    IconButton(
-                      icon: const Icon(
-                        Icons.delete,
-                        color: Colors.red,
-                        size: 16,
-                      ),
-                      onPressed: () {},
                     ),
                   ],
                 ),
@@ -219,6 +226,31 @@ class CustomDataTableWidget<T> extends StatelessWidget {
             );
           }),
         ),
+      ),
+    );
+  }
+
+// Helper method to create action buttons
+  Widget _buildActionButton(
+      {required IconData icon,
+      required Color color,
+      required String label,
+      required VoidCallback onPressed}) {
+    return Container(
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(4),
+        border: Border.all(color: Colors.grey),
+        color: Colors.white,
+      ),
+      child: Row(
+        mainAxisSize: MainAxisSize.min, // Use min to reduce unnecessary space
+        children: [
+          IconButton(
+            icon: Icon(icon, color: color, size: 16),
+            onPressed: onPressed,
+          ),
+          Text(label, style: const TextStyle(fontSize: 14)), // Set a consistent style
+        ],
       ),
     );
   }
@@ -237,14 +269,16 @@ class CustomDataTableWidget<T> extends StatelessWidget {
   }
 
   // Pagination controls for table layout
-  Widget _buildPaginationControls(BuildContext context, int totalPages, bool isMobile) {
+  Widget _buildPaginationControls(
+      BuildContext context, int totalPages, bool isMobile) {
     final provider = context.read<CustomDataTableProvider>();
     return Padding(
       padding: EdgeInsets.all(isMobile ? 4.0 : 8.0),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Text('Page ${provider.currentPage + 1} of $totalPages', style: TextStyle(fontSize: isMobile ? 12 : 14)),
+          Text('Page ${provider.currentPage + 1} of $totalPages',
+              style: TextStyle(fontSize: isMobile ? 12 : 14)),
           Row(
             children: [
               IconButton(
@@ -254,8 +288,8 @@ class CustomDataTableWidget<T> extends StatelessWidget {
                 ),
                 onPressed: provider.currentPage > 0
                     ? () {
-                  provider.goToPreviousPage();
-                }
+                        provider.goToPreviousPage();
+                      }
                     : null,
               ),
               IconButton(
@@ -265,8 +299,8 @@ class CustomDataTableWidget<T> extends StatelessWidget {
                 ),
                 onPressed: provider.currentPage < totalPages - 1
                     ? () {
-                  provider.goToNextPage(totalPages);
-                }
+                        provider.goToNextPage(totalPages);
+                      }
                     : null,
               ),
             ],

@@ -26,5 +26,3 @@ class _EditRequestScreenState extends State<EditRequestScreen> {
     );
   }
 }
-
-

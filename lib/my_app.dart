@@ -5,6 +5,8 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get_it/get_it.dart';
 import 'package:hero_kaizen_app/src/common_widgets/custom_data_table/provider/custom_data_table_provider.dart';
+import 'package:hero_kaizen_app/src/features/landing_dashboard/provider/landing_dashborad_controller.dart';
+import 'package:hero_kaizen_app/src/features/view_request_status/provider/view_request_provider.dart';
 import 'package:provider/provider.dart';
 import 'package:hero_kaizen_app/l10n/localixation.dart';
 import 'package:hero_kaizen_app/src/common_widgets/datetime/datetime_provider.dart';
@@ -17,8 +19,9 @@ import 'package:hero_kaizen_app/src/routing/route_config.dart';
 import 'package:hero_kaizen_app/src/themes/theme_provider.dart';
 
 class MyApp extends StatelessWidget {
-
-  const MyApp({super.key,});
+  const MyApp({
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -35,6 +38,10 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(create: (_) => KaizenBenefitProvider()),
         ChangeNotifierProvider(create: (_) => KaizenLossProvider()),
         ChangeNotifierProvider(create: (_) => CustomDataTableProvider()),
+        ChangeNotifierProvider(create: (_) => RequestProvider()),
+
+        ChangeNotifierProvider(create: (_) => LandingDashboardCOntroller()),
+
       ],
       child: Consumer2<ThemeProvider, LocalizationProvider>(
         builder: (context, themeProvider, localizationProvider, child) {
@@ -54,16 +61,15 @@ class MyApp extends StatelessWidget {
                   colorScheme: ColorScheme.fromSeed(
                     seedColor: Colors.black,
                     primary: Colors.black,
-
                   ),
                   useMaterial3: true,
                   textTheme: TextTheme(
                     bodySmall: TextStyle(
-                        color: context.watch<ThemeProvider>().themeMode ==ThemeMode.dark?
-                        Colors.white:Colors.black
-                    ),
-                  )
-              ),
+                        color: context.watch<ThemeProvider>().themeMode ==
+                                ThemeMode.dark
+                            ? Colors.white
+                            : Colors.black),
+                  )),
               localizationsDelegates: const [
                 AppLocalizations.delegate,
                 GlobalMaterialLocalizations.delegate,

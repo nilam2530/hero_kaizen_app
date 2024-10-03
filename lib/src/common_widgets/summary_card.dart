@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import '../app_configs/app_colors.dart';
 
 class SummaryCard extends StatelessWidget {
@@ -9,7 +10,6 @@ class SummaryCard extends StatelessWidget {
   final double imageSize;
   final TextStyle? valueTextStyle;
   final TextStyle? labelTextStyle;
-  final Color iconBackgroundColor;
   final Image? bgImg;
   final double opacity;
 
@@ -19,10 +19,9 @@ class SummaryCard extends StatelessWidget {
     required this.value,
     required this.label,
     this.backgroundColor = Colors.white,
-    this.imageSize = 20.0,
+    this.imageSize = 40.0,
     this.valueTextStyle,
     this.labelTextStyle,
-    required this.iconBackgroundColor,
     this.bgImg,
     this.opacity = 1.0,
   });
@@ -31,76 +30,90 @@ class SummaryCard extends StatelessWidget {
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     return Padding(
-      padding: const EdgeInsets.only(bottom: 10,left: 10),
+      padding: const EdgeInsets.only(bottom: 10, left: 10),
       child: Opacity(
         opacity: opacity,
         child: LayoutBuilder(
           builder: (context, constraints) {
             return Container(
               width: 220,
-              height: size.height*.15,
+              height: size.height * .15,
               decoration: BoxDecoration(
-                color: backgroundColor,
+                color: Colors.white,
+                boxShadow: [
+                  BoxShadow(
+                      color: Colors.grey.withOpacity(0.1),
+                      spreadRadius: 1,
+                      blurRadius: 5)
+                ],
                 borderRadius: BorderRadius.circular(8.0),
               ),
-              child: Stack(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        // Icon with background color
-                        Container(
-                          width: imageSize + 10,
-                          height: imageSize + 10,
-                          decoration: BoxDecoration(
-                            color: iconBackgroundColor,
-                            shape: BoxShape.circle,
-                          ),
-                          child: Center(
-                            child: Image.asset(
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Column(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  value,
+                                  style: _textStyle(
+                                    constraints,
+                                    valueTextStyle,
+                                    isLabel: false,
+                                  ),
+                                  maxLines: 1,
+                                  overflow: TextOverflow.ellipsis,
+                                ),
+                                Text(
+                                  label,
+                                  textAlign: TextAlign.center,
+                                  style: _textStyle(
+                                    constraints,
+                                    labelTextStyle,
+                                    isLabel: true,
+                                  ),
+                                  maxLines: 1,
+                                ),
+                              ],
+                            ),
+
+                            SvgPicture.asset(
                               imagePath,
                               height: imageSize,
                               width: imageSize,
                               fit: BoxFit.cover,
-                            ),
-                          ),
-                        ),
-                        const SizedBox(height: 5),
-                        // Value text
-                        Text(
-                          value,
-                          style: _textStyle(
-                            constraints,
-                            valueTextStyle,
-                            isLabel: false,
-
-                          ),
-                          maxLines: 1,
-                          overflow: TextOverflow.ellipsis,
+                            )
+                            // Container(
+                            //   width: imageSize + 10,
+                            //   height: imageSize + 10,
+                            //   decoration: BoxDecoration(
+                            //     color: iconBackgroundColor,
+                            //     shape: BoxShape.circle,
+                            //   ),
+                            //   child: Center(
+                            //     child: Image.asset(
+                            //       imagePath,
+                            //       height: imageSize,
+                            //       width: imageSize,
+                            //       fit: BoxFit.cover,
+                            //     ),
+                            //   ),
+                            // ),
+                          ],
                         ),
                         // Label text
-                        Text(
-                          label,
-                          textAlign: TextAlign.center,
-                          style: _textStyle(
-                            constraints,
-                            labelTextStyle,
-                            isLabel: true,
-                          ),
-                          maxLines: 1,
-                        ),
                       ],
                     ),
                   ),
-                  // Background image, if provided
-                  if (bgImg != null)
-                    Positioned(
-                      right: 4,
-                      top: 2,
-                      child: bgImg!,
-                    ),
                 ],
               ),
             );
@@ -110,8 +123,11 @@ class SummaryCard extends StatelessWidget {
     );
   }
 
-  TextStyle _textStyle(BoxConstraints constraints, TextStyle? style, {required bool isLabel}) {
-    final baseFontSize = isLabel ? (constraints.maxWidth > 600 ? 16.0 : 14.0) : (constraints.maxWidth > 600 ? 20.0 : 18.0);
+  TextStyle _textStyle(BoxConstraints constraints, TextStyle? style,
+      {required bool isLabel}) {
+    final baseFontSize = isLabel
+        ? (constraints.maxWidth > 600 ? 16.0 : 14.0)
+        : (constraints.maxWidth > 600 ? 20.0 : 18.0);
     return (style ?? const TextStyle()).copyWith(
       fontSize: baseFontSize,
       fontWeight: isLabel ? FontWeight.w500 : FontWeight.bold,

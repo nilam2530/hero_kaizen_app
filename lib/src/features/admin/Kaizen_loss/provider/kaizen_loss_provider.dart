@@ -9,12 +9,12 @@ class KaizenLossProvider with ChangeNotifier {
   final TextEditingController plantNameController = TextEditingController();
   final TextEditingController pillarNameController = TextEditingController();
   final TextEditingController pillarHeadECNoController =
-  TextEditingController();
+      TextEditingController();
   final TextEditingController sortOrderController = TextEditingController();
   String selectedPillarHead = '';
   List<KaizenLossTableModel> newData = List.generate(
     50,
-        (index) => KaizenLossTableModel(
+    (index) => KaizenLossTableModel(
       id: (index + 1).toString(),
       lossNumber: "${index + 1}",
       lossName: "Break Down Loss${index + 1}",

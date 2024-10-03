@@ -16,11 +16,13 @@ class SidemeuController with ChangeNotifier {
     const MenuItemData(title: "View Request", icon: Icons.table_view_outlined),
     const MenuItemData(title: "Location", icon: Icons.table_view_outlined),
     const MenuItemData(title: "Kaizen", icon: Icons.table_view_outlined),
-    const MenuItemData(title: "Kiazen Panel", icon: Icons.table_view_outlined),
+    const MenuItemData(title: "Kaizen Panel", icon: Icons.table_view_outlined),
     const MenuItemData(title: "Kaizen Theme", icon: Icons.dashboard),
     const MenuItemData(title: "Kaizen Loss", icon: Icons.insert_chart),
     const MenuItemData(title: "View Request Status", icon: Icons.table_view_outlined),
     const MenuItemData(title: "View Request benefit", icon: Icons.table_view_outlined),
+    const MenuItemData(title: "View Request Machine", icon: Icons.table_view_outlined),
+    const MenuItemData(title: "Dashboard1", icon: Icons.table_view_outlined),
   ];
 
   void handleMenuItemSelected(int index, BuildContext context) {
@@ -46,7 +48,7 @@ class SidemeuController with ChangeNotifier {
       case 5:
         GoRouter.of(context).go('/kaizenform');
       case 6:
-         GoRouter.of(context).go('/kaizenAddPillar');
+        GoRouter.of(context).go('/kaizenAddPillar');
       case 7:
         GoRouter.of(context).go('/kaizenTheme');
       case 8:
@@ -55,6 +57,10 @@ class SidemeuController with ChangeNotifier {
         GoRouter.of(context).go('/requestStatus');
       case 10:
         GoRouter.of(context).go('/kaizenBenefit');
+      case 11:
+        GoRouter.of(context).go('/KaizenMachineView');
+      case 12:
+        GoRouter.of(context).go('/tabDashboard');
       default:
         break;
     }

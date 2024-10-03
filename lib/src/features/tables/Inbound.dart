@@ -16,7 +16,8 @@ class InboundState extends State<Inbound> {
     return Scaffold(
       backgroundColor: AppColors.whiteColor,
       body: Padding(
-        padding: EdgeInsets.all(MediaQuery.of(context).size.width > 800 ? 40.0 : 20.0),
+        padding: EdgeInsets.all(
+            MediaQuery.of(context).size.width > 800 ? 40.0 : 20.0),
         child: LayoutBuilder(
           builder: (context, constraints) {
             if (constraints.maxWidth > 800) {

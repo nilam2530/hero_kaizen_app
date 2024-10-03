@@ -5,11 +5,12 @@ class CustomMenuIconButtonScreen extends StatefulWidget {
   const CustomMenuIconButtonScreen({super.key});
 
   @override
-  State<CustomMenuIconButtonScreen> createState() => _CustomMenuIconButtonScreenState();
+  State<CustomMenuIconButtonScreen> createState() =>
+      _CustomMenuIconButtonScreenState();
 }
 
-class _CustomMenuIconButtonScreenState extends State<CustomMenuIconButtonScreen> {
-
+class _CustomMenuIconButtonScreenState
+    extends State<CustomMenuIconButtonScreen> {
   final TextEditingController _searchController = TextEditingController();
 
   @override
@@ -18,19 +19,21 @@ class _CustomMenuIconButtonScreenState extends State<CustomMenuIconButtonScreen>
     filteredTitles = titles; // Initialize with all items
     _searchController.addListener(_filterSearchResults);
   }
+
   void _filterSearchResults() {
     String query = _searchController.text.toLowerCase();
-      filteredTitles = titles
-          .where((title) => title.toLowerCase().contains(query))
-          .toList();
+    filteredTitles =
+        titles.where((title) => title.toLowerCase().contains(query)).toList();
   }
+
   bool isExpanded = false;
   Size? size;
   @override
   Widget build(BuildContext context) {
     size = MediaQuery.of(context).size;
-    return  _buildMenuIcon();
+    return _buildMenuIcon();
   }
+
   OverlayEntry? _overlayEntry;
   final LayerLink _layerLink = LayerLink();
   Widget _buildMenuIcon() {
@@ -39,8 +42,8 @@ class _CustomMenuIconButtonScreenState extends State<CustomMenuIconButtonScreen>
       child: IconButton(
         icon: Image.asset(AppImages.menuIconsDot, width: 20, height: 20),
         onPressed: () {
-            isExpanded ? _overlayEntry?.remove() : _showDropdown(context);
-            isExpanded = !isExpanded;
+          isExpanded ? _overlayEntry?.remove() : _showDropdown(context);
+          isExpanded = !isExpanded;
         },
       ),
     );
@@ -52,8 +55,8 @@ class _CustomMenuIconButtonScreenState extends State<CustomMenuIconButtonScreen>
       builder: (context) => Positioned(
         width: 335,
         top: kToolbarHeight + 8,
-        left: size!.width>600?0:null,
-        right: size!.width<600?0:null,
+        left: size!.width > 600 ? 0 : null,
+        right: size!.width < 600 ? 0 : null,
         child: Material(
           elevation: 4,
           child: _buildDropdownContent(),
@@ -64,7 +67,7 @@ class _CustomMenuIconButtonScreenState extends State<CustomMenuIconButtonScreen>
     overlayState.insert(_overlayEntry!);
     Future.delayed(const Duration(seconds: 5), () {
       _overlayEntry!.remove();
-      isExpanded = false ;
+      isExpanded = false;
     });
   }
 
@@ -106,6 +109,7 @@ class _CustomMenuIconButtonScreenState extends State<CustomMenuIconButtonScreen>
       ),
     );
   }
+
   List<String> filteredTitles = [];
   List<String> titles = [
     'Inbound Logistics',
