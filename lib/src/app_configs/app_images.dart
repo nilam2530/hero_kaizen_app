@@ -67,6 +67,8 @@ class AppImages {
   static const splashScreen = '${assetImg}splashScreen.jpg';
   static const menuIconsDot = '${assetImg}dots-menu.png';
   static const downArrowTable = '${assetImg}down-arrow 1.jpg';
+  static const dropdown = 'assets/images/teenyicons_down-solid.svg';
+  static const iconEyes = 'assets/images/iconamoon_eye.svg';
 
 
   //DashboardImages
@@ -77,6 +79,8 @@ class AppImages {
   static const createRequestIcon = 'assets/images/dashboard_image/create_request_icon.svg';
   static const allRequest = 'assets/images/dashboard_image/all_request.svg';
   static const pending = 'assets/images/dashboard_image/pending.svg';
+  static const vector = 'assets/icons/Vector.svg';
+  static const tablemulti1 = 'assets/icons/mdi_account-pending-outline.svg';
   //Dashboard Table Images
   static const icActionEye = 'assets/images/dashboard_image/data_table_images/ic_action_eye.svg';
   static const icFunnelTable = 'assets/images/dashboard_image/data_table_images/ic_funnel_table.svg';

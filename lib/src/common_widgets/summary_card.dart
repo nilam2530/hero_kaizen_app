@@ -36,8 +36,8 @@ class SummaryCard extends StatelessWidget {
         child: LayoutBuilder(
           builder: (context, constraints) {
             return Container(
-              width: 220,
-              height: size.height * .15,
+              width: 200,
+              height: size.height * .10,
               decoration: BoxDecoration(
                 color: Colors.white,
                 boxShadow: [
@@ -52,7 +52,7 @@ class SummaryCard extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Padding(
-                    padding: const EdgeInsets.all(8.0),
+                    padding: const EdgeInsets.all(5.0),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -92,22 +92,6 @@ class SummaryCard extends StatelessWidget {
                               width: imageSize,
                               fit: BoxFit.cover,
                             )
-                            // Container(
-                            //   width: imageSize + 10,
-                            //   height: imageSize + 10,
-                            //   decoration: BoxDecoration(
-                            //     color: iconBackgroundColor,
-                            //     shape: BoxShape.circle,
-                            //   ),
-                            //   child: Center(
-                            //     child: Image.asset(
-                            //       imagePath,
-                            //       height: imageSize,
-                            //       width: imageSize,
-                            //       fit: BoxFit.cover,
-                            //     ),
-                            //   ),
-                            // ),
                           ],
                         ),
                         // Label text

@@ -3,10 +3,10 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:hero_kaizen_app/src/app_configs/app_images.dart';
 import 'package:hero_kaizen_app/src/features/dashboard1/DashboardTwo.dart';
-import 'package:hero_kaizen_app/src/features/dashboard1/dashboard1.dart';
 import 'package:provider/provider.dart';
 import '../../app_configs/app_colors.dart';
 import '../create_new_request/create_new_request_screen.dart';
+import '../dashboard/widget/dashboard_widget.dart';
 import '../kaizen_sheet/kainez_sheet.dart';
 import '../landing_dashboard/landing_dashboard_view.dart';
 import '../sidebar/custom_appbar/landing_app_bar.dart';
@@ -100,29 +100,31 @@ class DashboardTabs extends StatelessWidget {
         children: [
           // Responsive TabBar with icons and text
           Container(
+            height: 48,
             color: AppColors.whiteColor,
             padding: const EdgeInsets.symmetric(horizontal: 8.0),
             child: TabBar(
+              padding: EdgeInsets.only(bottom: 2),
               dividerColor: AppColors.whiteColor,
               controller: tabControllerProvider.tabController,
               isScrollable: true,
               tabs: _tabs.map((tab) => Tab(
                 child: Row(
                   children: [
-                    SvgPicture.asset(tab['image'], width: 24, height: 24),
-                    const SizedBox(width: 8), // Added spacing between icon and text
-                    Text(tab['title']),
+                    SvgPicture.asset(tab['image'], width: 20, height: 20),
+                    const SizedBox(width: 2), // Added spacing between icon and text
+                    Text(tab['title'],style: TextStyle(fontSize: 12),),
                   ],
                 ),
               )).toList(),
               labelStyle: TextStyle(
-                fontSize: MediaQuery.of(context).size.width > 600 ? 18 : 16,
+                fontSize: MediaQuery.of(context).size.width > 600 ? 18 : 14,
               ),
               unselectedLabelStyle: TextStyle(
                 fontSize: MediaQuery.of(context).size.width > 600 ? 18 : 16,
               ),
               indicator: const UnderlineTabIndicator(
-                borderSide: BorderSide(color: Colors.red, width: 4.0),
+                borderSide: BorderSide(color: Colors.red, width: 2.0),
               ),
             ),
           ),
@@ -131,9 +133,11 @@ class DashboardTabs extends StatelessWidget {
             child: TabBarView(
               controller: tabControllerProvider.tabController,
               children: const [
+                DashboardWidget(),
+
                 LandingDashboardView(),
                 DashboardTwo(),
-                Dashboard1(),
+                //Dashboard1(),
                 ViewRequestScreen(),
                 CreateNewRequestDesktopScreen(),
                 KaizenSheetScreen(),
